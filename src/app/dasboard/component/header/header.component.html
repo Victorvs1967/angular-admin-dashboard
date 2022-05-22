@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <div class="main-nav">
+    <button mat-icon-button (click)="taggledAction()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="brand-title" routerLink="/admin">Admin dashboard</span>
+  </div>
+  <!-- Drop menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/auth/login">
+      <mat-icon>login</mat-icon>
+      <span>Login</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>info</mat-icon>
+      <span>Info</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

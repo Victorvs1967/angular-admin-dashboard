@@ -1,0 +1,23 @@
+<div class="chart-container">
+
+  <mat-card>
+    <mat-card-content>
+      <ngx-donut-chart 
+        [view]='donutView'
+        [chartData]="donutChartData" 
+        [chartOptions]='donutChartOptions'>
+      </ngx-donut-chart>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <ngx-pie-chart 
+        [view]='pieView' 
+        [chartData]='pieChartData' 
+        [chartOptions]='pieChartOptions'>
+      </ngx-pie-chart>
+    </mat-card-content>
+  </mat-card>
+
+</div>

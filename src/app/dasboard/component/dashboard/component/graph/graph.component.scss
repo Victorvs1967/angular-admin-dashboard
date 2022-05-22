@@ -1,0 +1,18 @@
+@import "~ngx-chart/styles.scss";
+
+.chart-container {
+  display: grid;
+  grid-template-columns: 49% 49%;
+  gap: 1.2rem;
+}
+
+.ngx-donut .chart-wrapper path:hover {
+  cursor: pointer;
+  stroke-width: 55px;
+}
+
+.ngx-pie .chart-wrapper path:hover {
+  cursor: pointer;
+  transform-origin: center;
+  transform: scale(1.05);
+}

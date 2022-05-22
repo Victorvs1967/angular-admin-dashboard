@@ -1,0 +1,64 @@
+<div class="container">
+  <mat-card class="login-form">
+    <button mat-icon-button class="btn-close" routerLink="/"><mat-icon>close</mat-icon></button>
+    <mat-card-title>Sign Up</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <mat-card-content class="form-inputs">
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Enter username...">
+        <mat-hint>username</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter password...">
+        <mat-hint>password</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Reenter Password</mat-label>
+        <input matInput placeholder="Reenter password...">
+        <mat-hint>be atention...</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter email...">
+        <mat-hint>email</mat-hint>
+      </mat-form-field>
+
+      <div class="fields-group">
+        <mat-form-field  class="input-item"appearance="legacy">
+          <mat-label>Firstname</mat-label>
+          <input matInput placeholder="Repeat first name...">
+          <mat-hint>firstname</mat-hint>
+        </mat-form-field>
+  
+        <mat-form-field class="input-item" appearance="legacy">
+          <mat-label>Lastname</mat-label>
+          <input matInput placeholder="Enter lastname...">
+          <mat-hint>lastname</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Enter phone...">
+        <mat-hint>phone</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="Enter address...">
+        <mat-hint>address</mat-hint>
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions class="btn-group">
+      <button mat-stroked-button color="primary">SignUp</button>
+      <button mat-stroked-button routerLink="/auth/login">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
