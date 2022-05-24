@@ -80,10 +80,12 @@ export class AuthService {
   }
 
   logout() {
-    this.clearToken();
-    this.loggedIn.next(false);
-    this.adminIn.next(false);
-    setTimeout(() => {}, 500);
+    if (confirm('Are you sure?')) {
+      this.clearToken();
+      this.loggedIn.next(false);
+      this.adminIn.next(false);
+      setTimeout(() => {}, 500);
+    }
   }
 
   token_decode(token: string): any {

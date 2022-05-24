@@ -10,8 +10,8 @@ import { User } from 'src/app/model/user.model';
   styleUrls: ['./list-user.component.scss'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0', padding: '0', margin: '0' })),
+      state('expanded', style({ height: '*', margin: '*' })),
       transition('expanded <=> collapsed', animate('400ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -22,7 +22,18 @@ export class ListUserComponent {
   dataSource: any;
   expandedElement: User | null | undefined;
 
-  constructor(admin: AdminService) {
-    admin.getPersonList().subscribe(data => this.dataSource = new UsersDataSource([ ...data ]));
+  constructor(private admin: AdminService) {
+    this.reloadData();
+  }
+
+  deleteUser(username: string) {
+    if (confirm('Are you sure?')) {
+      this.admin.deleteUser(username).subscribe(() => this.reloadData());
+    }
+  }
+
+  reloadData() {
+    this.admin.getUserList().subscribe(data => this.dataSource = new UsersDataSource([...data]));
+
   }
 }

@@ -15,6 +15,7 @@ export class UsersDataSource extends DataSource<User> {
     super();
     this.data = new BehaviorSubject<User[]>(data);
   }
+  
   /** Stream of data that is provided to the table. */
   data: BehaviorSubject<User[]>;
 

@@ -32,9 +32,10 @@
   <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
-      <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-        <div class="element-diagram">
-          <div class="element-username"> {{element.username}} </div>
+      <mat-card class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+      <mat-card-title class="element-username"> {{element.username}} </mat-card-title>
+      <mat-divider inset></mat-divider>
+        <mat-card-content class="element-diagram">
           <div class="element-role"><strong>Role: </strong> {{element.role}} </div>
           <div class="element-email"><strong>Email: </strong> {{element.email}} </div>
           <div class="element-fullname"><strong>Fullname: </strong> {{element.firstName}} {{element.lastName}}</div>
@@ -42,8 +43,12 @@
           <div class="element-address"><strong>Address: </strong> {{element.address}} </div>
           <div class="element-created"><strong>Created: </strong> {{ element.onCreate | date: "dd.MM.yyyy, HH:mm:ss" }} </div>
           <div class="element-created"><strong>Updated: </strong> {{ element.onUpdate | date: "dd.MM.yyyy, HH:mm:ss" }} </div>
-        </div>
-      </div>
+        </mat-card-content>
+        <mat-card-actions class="btn-group">
+          <button mat-stroked-button color="primary" routerLink="/admin/editUser/{{element.username}}">Edit</button>
+          <button mat-stroked-button color="warn" (click)="deleteUser(element.username)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
     </td>
   </ng-container>
 
