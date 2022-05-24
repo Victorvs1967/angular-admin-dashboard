@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   get isAdmin(): Observable<boolean> {
-    if (this.token != undefined) this.adminIn.next(this.token_decode(this.token).role === Role.ADMIN);
+    if (this.token != undefined) this.adminIn.next(this.jwtService.decodeToken(this.token).role === Role.ADMIN);
     return this.adminIn.asObservable();
   }
 
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   getUser(): string {
-    return this.token_decode(this.getToken()).sub;
+    return this.jwtService.decodeToken(this.getToken()).sub;
   }
 
   clearToken() {
@@ -55,7 +55,7 @@ export class AuthService {
 
   login(userInfo: { username: string, password: string }): Observable<any | boolean> {
     return this.http.post(environment.baseUrl.concat(environment.authUrl).concat('/login'), userInfo).pipe(map((token: any) => {
-      if (this.token_decode(token.token).role === Role.ADMIN) {
+      if (this.jwtService.decodeToken(token.token).role === Role.ADMIN) {
         this.clearToken();
         this.setToken(token);
         this.loggedIn.next(true);
@@ -71,8 +71,7 @@ export class AuthService {
       this.loggedIn.next(false);
       this.adminIn.next(false);
       return throwError(() => new Error('Failed login'));
-      })
-    );
+    }));
   }
 
   signup(user: User): Observable<any | boolean> {
@@ -86,9 +85,5 @@ export class AuthService {
       this.adminIn.next(false);
       setTimeout(() => {}, 500);
     }
-  }
-
-  token_decode(token: string): any {
-    return this.jwtService.decodeToken(token);
   }
 }

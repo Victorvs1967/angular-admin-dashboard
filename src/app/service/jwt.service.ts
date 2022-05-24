@@ -7,7 +7,7 @@ export class JwtService {
 
   constructor() { }
 
-  decodeToken(token: string): string {
+  decodeToken(token: string): any {
     return JSON.parse(JSON.stringify(jwt_decode(token)));
   }
 }
