@@ -3,8 +3,8 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" opened>
   <mat-nav-list role="list">
-    <mat-list-item class="nav-link" role="listitem" routerLink="addProduct">Add Product</mat-list-item>
-    <mat-list-item class="nav-link" role="listitem" routerLink="listProduct">List Product</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem" routerLink="/auth/signup">Add User</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem" routerLink="listUser">List Users</mat-list-item>
   </mat-nav-list>  
 </mat-drawer>
 
@@ -12,10 +12,11 @@
   <router-outlet></router-outlet>
 </div>
 
-<mat-card class="card-content">
+<!-- <mat-card class="card-content">
   <mat-card-content>
+    <app-list-user></app-list-user>
     <app-data-table></app-data-table>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
 
 </mat-drawer-container>

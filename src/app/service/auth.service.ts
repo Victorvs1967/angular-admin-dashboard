@@ -12,8 +12,6 @@ import { JwtService } from './jwt.service';
 })
 export class AuthService {
 
-  isUsername: string | undefined;
-
   private loggedIn = new BehaviorSubject<boolean>(false);
   private adminIn = new BehaviorSubject<boolean>(false);
   private token: string | undefined;
@@ -38,10 +36,14 @@ export class AuthService {
   getToken() {
     return sessionStorage.getItem('token') ? sessionStorage.getItem('token')! : '';
   }
+
+  getUser(): string {
+    return this.token_decode(this.getToken()).sub;
+  }
+
   clearToken() {
     sessionStorage.removeItem('token');
   }
-
 
   onLogin(): boolean {
     return sessionStorage.getItem('token') ? true : false;
@@ -49,7 +51,6 @@ export class AuthService {
 
   onAdmin(): Observable<boolean | any> {
     return this.isAdmin;
-
   }
 
   login(userInfo: { username: string, password: string }): Observable<any | boolean> {

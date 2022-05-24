@@ -3,19 +3,18 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
-import { AddProductComponent } from './component/dashboard/component/add-product/add-product.component';
+import { AddUserComponent } from './component/dashboard/component/add-user/add-user.component';
 import { HeaderComponent } from './component/header/header.component';
-import { ListProductComponent } from './component/dashboard/component/list-product/list-product.component';
 import { GraphComponent } from './component/dashboard/component/graph/graph.component';
 import { NgxChartModule } from 'ngx-chart';
-import { DataTableComponent } from './component/dashboard/component/data-table/data-table.component';
+import { ListUserComponent } from './component/dashboard/component/list-user/list-user.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent,
     children: [
       { path: '', component: GraphComponent },
-      { path: 'addProduct', component: AddProductComponent },
-      { path: 'listProduct', component: ListProductComponent },
+      { path: 'addUser', component: AddUserComponent },
+      { path: 'listUser', component: ListUserComponent },
     ]
   },
 ];
@@ -23,11 +22,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     DashboardComponent,
-    AddProductComponent,
     GraphComponent,
     HeaderComponent,
-    ListProductComponent,
-    DataTableComponent,
+    AddUserComponent,
+    ListUserComponent,
   ],
   imports: [
     CommonModule,

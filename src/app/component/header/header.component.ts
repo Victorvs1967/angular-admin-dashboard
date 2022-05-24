@@ -30,4 +30,7 @@ export class HeaderComponent implements OnInit {
     this.auth.logout();
   }
 
+  info() {
+    console.log(this.auth.getUser());
+  }
 }

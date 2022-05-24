@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'signup', component: SignupComponent },
     ],
-  },
+  }
 ];
 
 @NgModule({
@@ -24,7 +24,6 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule,
     RouterModule.forChild(routes),
     MaterialUiModule,
     ReactiveFormsModule,

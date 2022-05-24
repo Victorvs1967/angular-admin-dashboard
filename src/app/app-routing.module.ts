@@ -6,7 +6,7 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard], canDeactivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: "auth", loadChildren: () => import('./auth/auth.module').then(M => M.AuthModule) },
   { path: "admin", canActivate: [AuthGuard], canActivateChild: [AdminGuard], loadChildren: () => import('./dasboard/dashboard.module').then(M => M.DashboardModule) },
 ];

@@ -15,6 +15,8 @@ export class HeaderComponent implements OnInit {
   isLogin: Observable<boolean> | undefined;
   isAdmin: Observable<boolean> | undefined;
 
+  isUser: string | undefined;
+
   constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -35,6 +37,10 @@ export class HeaderComponent implements OnInit {
 
   taggledAction() {
     this.taggledEvent.emit('');
+  }
+
+  info() {
+    console.log(this.auth.getUser());
   }
 
 }

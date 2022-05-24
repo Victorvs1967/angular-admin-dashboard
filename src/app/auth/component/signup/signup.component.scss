@@ -15,7 +15,7 @@
 
 .form-inputs {
   width: 100%;
-  padding: 2rem 0 0;
+  padding: 2rem 0 2rem;
 
   mat-form-field {
     width: 100%;
@@ -32,8 +32,8 @@
 
 .btn-group {
   position: absolute;
-  right: 1rem;
-  bottom: 1.2rem;
+  right: 2rem;
+  bottom: .25rem;
 }
 
 .btn-close {
