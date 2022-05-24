@@ -9,6 +9,49 @@ th {
 .mat-header-cell {
   font-size: 1rem;
 }
-.row:nth-child(odd) {
-  background-color: rgba(0, 0, 0, .05);
+
+// .row:nth-child(odd) {
+//   background-color: rgba(0, 0, 0, .05);
+// }
+
+// expanded
+tr.detail-row {
+  height: 0;
+}
+
+tr.row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-diagram {
+  min-width: 90%;
+  min-height: 100px;
+  border: 2px solid black;
+  padding: 1rem;
+  font-weight: lighter;
+  text-align: center;
+  margin: 8px auto;
+}
+
+.element-username {
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: normal;
+}
+
+.element-cdeated-attribution {
+  opacity: 0.5;
 }
