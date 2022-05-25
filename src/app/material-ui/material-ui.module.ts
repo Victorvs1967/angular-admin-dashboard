@@ -11,6 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 const MATERIAL_UI_COMPONENT = [
   MatToolbarModule,
@@ -24,6 +25,7 @@ const MATERIAL_UI_COMPONENT = [
   MatTableModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSelectModule,
 ];
 
 @NgModule({

@@ -18,7 +18,7 @@ import { User } from 'src/app/model/user.model';
 })
 export class ListUserComponent {
 
-  displayedColumns: string[] = [ 'username', 'email', 'firstName', 'lastName', 'onCreate' ];
+  displayedColumns: string[] = [ 'username', 'email', 'firstName', 'lastName', 'onCreate', 'role' ];
   dataSource: any;
   expandedElement: User | null | undefined;
 

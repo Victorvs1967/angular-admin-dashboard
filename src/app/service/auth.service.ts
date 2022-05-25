@@ -84,6 +84,8 @@ export class AuthService {
       this.loggedIn.next(false);
       this.adminIn.next(false);
       setTimeout(() => {}, 500);
+      return true;
     }
+    return false;
   }
 }

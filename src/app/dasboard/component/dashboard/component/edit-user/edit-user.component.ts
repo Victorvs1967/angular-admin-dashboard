@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Role } from 'src/app/model/role.model';
+import { UserRole } from 'src/app/model/user-role.model';
 import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
@@ -10,6 +12,12 @@ import { AdminService } from 'src/app/service/admin.service';
   styleUrls: ['./edit-user.component.scss']
 })
 export class EditUserComponent implements OnInit {
+
+  roles: UserRole[] = [
+    { value: Role.ADMIN, viewValue: 'ADMIN' },
+    { value: Role.USER, viewValue: 'USER' },
+    { value: Role.MANAGER, viewValue: 'MANAGER' },
+  ];
 
   editForm?: FormGroup;
   isLogin: Observable<boolean> | undefined;
@@ -26,7 +34,8 @@ export class EditUserComponent implements OnInit {
           firstName: [user.firstName],
           lastName: [user.lastName],
           phone: [user.phone],
-          address: [user.address]
+          address: [user.address],
+          role: [user.role]
         });
       });
     });

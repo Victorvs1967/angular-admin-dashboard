@@ -50,4 +50,8 @@ tr.row:not(.expanded-row):active {
 
 .btn-group {
   margin-left: 1rem;
+
+  button {
+    width: 100px;
+  }
 }
