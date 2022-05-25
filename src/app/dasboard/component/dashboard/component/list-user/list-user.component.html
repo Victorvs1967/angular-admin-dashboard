@@ -39,7 +39,13 @@
   <ng-container matColumnDef="expandedDetail">
     <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
       <mat-card class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-      <mat-card-title class="element-username"> {{element.username}} </mat-card-title>
+        <mat-card-header class="detail-header">
+          <mat-card-title class="element-username"> {{element.username}} </mat-card-title>
+          <mat-card-actions class="btn-group">
+            <button mat-stroked-button color="primary" routerLink="/admin/editUser/{{element.username}}">Edit</button>
+            <button mat-stroked-button color="warn" (click)="deleteUser(element.username)">Delete</button>
+          </mat-card-actions>
+        </mat-card-header>
       <mat-divider inset></mat-divider>
         <mat-card-content class="element-diagram">
           <div class="element-role"><strong>Role: </strong> {{element.role}} </div>
@@ -50,10 +56,6 @@
           <div class="element-created"><strong>Created: </strong> {{ element.onCreate | date: "dd.MM.yyyy, HH:mm:ss" }} </div>
           <div class="element-created"><strong>Updated: </strong> {{ element.onUpdate | date: "dd.MM.yyyy, HH:mm:ss" }} </div>
         </mat-card-content>
-        <mat-card-actions class="btn-group">
-          <button mat-stroked-button color="primary" routerLink="/admin/editUser/{{element.username}}">Edit</button>
-          <button mat-stroked-button color="warn" (click)="deleteUser(element.username)">Delete</button>
-        </mat-card-actions>
       </mat-card>
     </td>
   </ng-container>
