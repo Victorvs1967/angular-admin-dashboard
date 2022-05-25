@@ -1,6 +1,9 @@
+@import "src/assets/themes/theme.scss";
+
 .mat-toolbar {
   display: grid;
   grid-template-columns: 97% 3%;
+  background-color: $bdazzled-blue;
 }
 
 .main-nav {
