@@ -14,21 +14,6 @@
           <mat-hint>username</mat-hint>
         </mat-form-field>
 
-        <!-- <mat-form-field appearance="legacy">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Enter password..." type="password" formControlName="password" required>
-          <mat-hint>password</mat-hint>
-        </mat-form-field>
-
-        <mat-form-field appearance="legacy">
-          <mat-label>Reenter Password</mat-label>
-          <input matInput placeholder="Reenter password..." type="password" formControlName="password2" required>
-          <mat-hint *ngIf="editForm.controls['password']?.value == editForm.controls['password2']?.value">password
-            confirm</mat-hint>
-          <mat-hint *ngIf="editForm.controls['password']?.value != editForm.controls['password2']?.value"
-            style="color: red;">password not confirm</mat-hint>
-        </mat-form-field> -->
-
         <mat-form-field appearance="legacy">
           <mat-label>Email</mat-label>
           <input matInput placeholder="Enter email..." type="email" formControlName="email" required>
@@ -51,7 +36,7 @@
 
         <mat-form-field appearance="legacy">
           <mat-label>Phone</mat-label>
-          <input matInput placeholder="Enter phone..." type="text" formControlName="phone">
+          <input matInput placeholder="Enter phone..." type="tel" formControlName="phone">
           <mat-hint>phone</mat-hint>
         </mat-form-field>
 
