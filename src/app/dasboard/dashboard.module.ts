@@ -9,11 +9,13 @@ import { NgxChartModule } from 'ngx-chart';
 import { ListUserComponent } from './component/dashboard/component/list-user/list-user.component';
 import { EditUserComponent } from './component/dashboard/component/edit-user/edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from '../auth/component/signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent,
     children: [
       { path: '', component: GraphComponent },
+      { path: 'addUser', component: SignupComponent },
       { path: 'listUser', component: ListUserComponent },
       { path: 'editUser/:username', component: EditUserComponent },
     ]

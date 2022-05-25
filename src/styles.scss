@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~ngx-chart/styles.scss";
+@import "assets/themes/theme.scss";
 
 html, 
 body {
@@ -8,6 +9,8 @@ body {
 
 body { 
   margin: 0; 
+  background-color: var($light-cyan);
+  color: var($gunmetal);
   font-family: Roboto, "Helvetica Neue", sans-serif; 
   transition: all .4s ease-in-out;
 }

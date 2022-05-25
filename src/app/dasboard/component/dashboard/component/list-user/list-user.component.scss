@@ -10,14 +10,9 @@ th {
   font-size: 1rem;
 }
 
-// .row:nth-child(odd) {
-//   background-color: rgba(0, 0, 0, .05);
-// }
-
 // expanded
 tr.detail-row {
   height: 0;
-  // display: none;
 }
 
 tr.row:not(.expanded-row):hover {
@@ -46,14 +41,6 @@ tr.row:not(.expanded-row):active {
 
 .element-created-attribution {
   opacity: 0.5;
-}
-
-.btn-group {
-  margin-left: 1rem;
-
-  button {
-    width: 100px;
-  }
 }
 
 .detail-header {

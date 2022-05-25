@@ -3,8 +3,12 @@
 <mat-drawer-container class="container" autosize>
   <mat-drawer #drawer class="sidenav" mode="side" opened>
   <mat-nav-list role="list">
-    <mat-list-item class="nav-link" role="listitem" routerLink="/auth/signup">Add User</mat-list-item>
-    <mat-list-item class="nav-link" role="listitem" routerLink="listUser">List Users</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem" routerLink="/admin"><mat-icon>home</mat-icon>&nbsp;&nbsp;Home</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem" routerLink="addUser"><mat-icon>person_add</mat-icon>&nbsp;&nbsp;Add User</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem" routerLink="listUser"><mat-icon>group</mat-icon>&nbsp;&nbsp;List Users</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem"><mat-icon>cases</mat-icon>&nbsp;&nbsp;Projects</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem"><mat-icon>cast_for_education</mat-icon>&nbsp;&nbsp;Skills</mat-list-item>
+    <mat-list-item class="nav-link" role="listitem"><mat-icon>wysiwyg</mat-icon>&nbsp;&nbsp;Blog</mat-list-item>
   </mat-nav-list>  
 </mat-drawer>
 
