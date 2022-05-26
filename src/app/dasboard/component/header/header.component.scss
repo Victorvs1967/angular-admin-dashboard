@@ -1,9 +1,12 @@
-@import "src/assets/themes/theme.scss";
+.theme-toggle {
+  position: fixed;
+  top: .8rem;
+  right: .5rem;
+}
 
 .mat-toolbar {
   display: grid;
-  grid-template-columns: 97% 3%;
-  background-color: $bdazzled-blue;
+  grid-template-columns: 95% 5%;
 }
 
 .main-nav {

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
+import { StyleManagerService } from 'src/app/service/style-manager.service';
 
 @Component({
   selector: 'app-header',
@@ -12,12 +13,13 @@ export class HeaderComponent implements OnInit {
 
   @Output() taggledEvent: any = new EventEmitter();
 
+  isDark = this.styleManager.isDark;
   isLogin: Observable<boolean> | undefined;
   isAdmin: Observable<boolean> | undefined;
 
   isUser: string | undefined;
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private auth: AuthService, private router: Router, private styleManager: StyleManagerService) { }
 
   ngOnInit(): void {
     this.isLogin = this.auth.isLoggedIn;
@@ -39,8 +41,8 @@ export class HeaderComponent implements OnInit {
     this.taggledEvent.emit('');
   }
 
-  info() {
-    console.log(this.auth.getUser());
+  toggleDarkTheme() {
+    this.styleManager.toggleDarkTheme();
+    this.isDark = !this.isDark;
   }
-
 }

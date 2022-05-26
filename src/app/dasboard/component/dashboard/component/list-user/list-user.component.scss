@@ -20,11 +20,11 @@ tr.detail-row {
 }
 
 tr.row:not(.expanded-row):hover {
-  background: whitesmoke;
+  background: rgba( 0, 0, 0, .2);
 }
 
 tr.row:not(.expanded-row):active {
-  background: #efefef;
+  background: rgba(255, 255, 255, .2);
 }
 
 .row td {

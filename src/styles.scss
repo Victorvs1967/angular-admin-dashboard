@@ -1,6 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material'as mat;
+@use './styles/themes/light';
+@use './styles/typography/config'as typography;
+
 @import "~ngx-chart/styles.scss";
-@import "assets/themes/theme.scss";
+
+@include mat.core(typography.$angular-theme-app);
+@include mat.all-component-themes(light.$angular-theme-app-light-theme);
+// @include mat.core-theme(light.$angular-theme-app-light-theme);
+// @include mat.card-theme(light.$angular-theme-app-light-theme);
+// @include mat.button-theme(light.$angular-theme-app-light-theme);
 
 html, 
 body {
@@ -9,12 +18,10 @@ body {
 
 body { 
   margin: 0; 
-  background-color: $light-cyan;
-  color: var($gunmetal);
   font-family: Roboto, "Helvetica Neue", sans-serif; 
-  transition: all .4s ease-in-out;
 }
 
-.spacer {
-  flex: 1 1 auto;
+button,
+mat-card {
+  border-radius: 1.5rem !important;
 }
