@@ -1,28 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+
 @use '@angular/material'as mat;
 @use './styles/themes/light';
+@use './styles/components';
 @use './styles/typography/config'as typography;
 
 @import "~ngx-chart/styles.scss";
 
-@include mat.core(typography.$angular-theme-app);
+@include mat.core(typography.$angular-theme-app-typography);
+@include mat.core-theme(light.$angular-theme-app-light-theme);
+@include mat.card-theme(light.$angular-theme-app-light-theme);
+@include mat.button-theme(light.$angular-theme-app-light-theme);
 @include mat.all-component-themes(light.$angular-theme-app-light-theme);
-// @include mat.core-theme(light.$angular-theme-app-light-theme);
-// @include mat.card-theme(light.$angular-theme-app-light-theme);
-// @include mat.button-theme(light.$angular-theme-app-light-theme);
+@include components.theme(light.$angular-theme-app-light-theme,
+  typography.$angular-theme-app-typography,
+  light.$angular-theme-app-light-variants);
 
-html, 
+// Styling elements
+html,
 body {
-  height: 100%; 
+  height: 100%;
 }
 
-body { 
-  margin: 0; 
-  font-family: Roboto, "Helvetica Neue", sans-serif; 
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// button,
-.mat-button-base,
+.mat-button,
+.mat-flat-button,
+.mat-stroked-button,
+.mat-raised-button,
 .mat-card {
   border-radius: 1.5rem !important;
 }

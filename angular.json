@@ -55,7 +55,7 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/styles/themes/dark.scss",
+                "input": "src/styles/themes/_dark.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               }
@@ -128,7 +128,7 @@
             "styles": [
               "src/styles.scss",
               {
-                "input": "src/styles/themes/dark.scss",
+                "input": "src/styles/themes/_dark.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               }
