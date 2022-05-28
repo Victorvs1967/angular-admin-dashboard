@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map, Observable, of, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Role } from '../model/role.model';
@@ -26,7 +27,7 @@ export class AuthService {
     return this.adminIn.asObservable();
   }
 
-  constructor(private http: HttpClient, private jwtService: JwtService) { }
+  constructor(private http: HttpClient, private jwtService: JwtService, private router: Router) { }
 
   setToken(token: string) {
     this.token = JSON.parse(JSON.stringify(token)).token;
@@ -78,8 +79,8 @@ export class AuthService {
     return this.http.post(environment.baseUrl.concat(environment.authUrl).concat('/signup'), user)
   }
 
-  logout() {
-    if (confirm('Are you sure?')) {
+  logout(param = true) {
+    if (param) {
       this.clearToken();
       this.loggedIn.next(false);
       this.adminIn.next(false);

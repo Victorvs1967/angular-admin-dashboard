@@ -1,0 +1,5 @@
+@use "../../app/components/alert/alert-theme" as alert;
+
+@mixin theme($theme, $typography-config) {
+  @include alert.theme($theme, $typography-config);
+}

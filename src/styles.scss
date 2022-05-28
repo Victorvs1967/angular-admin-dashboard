@@ -21,7 +21,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
-button,
-mat-card {
+// button,
+.mat-button-base,
+.mat-card {
   border-radius: 1.5rem !important;
 }

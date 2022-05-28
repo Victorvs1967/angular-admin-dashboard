@@ -10,12 +10,14 @@ import { HeaderComponent } from './component/header/header.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { JwtService } from './service/jwt.service';
+import { AlertComponent } from './component/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

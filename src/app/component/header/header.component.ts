@@ -20,8 +20,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLogin = this.auth.isLoggedIn;
     this.isAdmin = this.auth.isAdmin;
-
-    this.isAdmin.subscribe(isAdmin => console.log(isAdmin));
   }
 
   login() {
