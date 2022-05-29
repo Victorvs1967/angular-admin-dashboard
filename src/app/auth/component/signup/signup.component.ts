@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLogin = this.auth.isLoggedIn;
-    this.auth.onAdmin().subscribe(r => this.isAdmin = r);
+    this.isAdmin = this.auth.isAdmin;
 
     this.signupForm = this.formBuilder.group({
       username: ['', [Validators.required]],

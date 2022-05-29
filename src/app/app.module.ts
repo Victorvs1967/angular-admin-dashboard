@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptor/token.interceptor';
 import { JwtService } from './service/jwt.service';
 import { AlertComponent } from './component/alert/alert.component';
+import { NotFoundComponent } from './component/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AlertComponent } from './component/alert/alert.component';
     HomeComponent,
     HeaderComponent,
     AlertComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
