@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  portfolio_frontend_service:
+    build:
+    # . means the relative path; in this case the root directory where the docker-compose file exists
+      context: .
+      # the dockerfile that you want to use to create the image
+      dockerfile: Dockerfile
+    # user defined container name
+    container_name: portfolio_frontend
+    ports:
+      - 4242:4200
+    volumes:
+    # map host current directory files to a docker container so that if we change something in our host system it will refect our docker images
+    - .:/home/app
+    # a named volume for node_modules so that we dont need to create
+    - /home/app/node_modules
