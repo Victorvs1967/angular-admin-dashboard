@@ -1,4 +1,4 @@
-FROM node:slim as build
+FROM node:slim AS build
 
 # install dependencies first, in a different location for easier app bind mounting for local development
 # due to default /home permissions we have to create the dir with root and change permissions
@@ -14,7 +14,7 @@ RUN npm install -g @angular/cli
 # https://github.com/nodejs/docker-node/blob/master/doc/BestPractices.md#non-root-user
 # USER node
 
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json ./
 RUN npm install --omit=optional --legacy-peer-deps && npm cache clean --force
 ENV PATH="/home/app/node_modules/.bin:$PATH"
 
@@ -22,4 +22,9 @@ ENV PATH="/home/app/node_modules/.bin:$PATH"
 # COPY --chown=node:node . .
 
 COPY . .
-CMD ng serve --host 0.0.0.0
+# CMD ng serve --host 0.0.0.0
+RUN ng build
+
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /home/app/dist/angular-admin-dashboard /usr/share/nginx/html

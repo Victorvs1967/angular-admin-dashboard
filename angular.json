@@ -54,13 +54,15 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/assets/style/all.min.css",
               {
                 "input": "src/styles/themes/_dark.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               }
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -72,8 +74,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "20kb",
+                  "maximumError": "40kb"
                 }
               ],
               "fileReplacements": [
@@ -127,13 +129,15 @@
             ],
             "styles": [
               "src/styles.scss",
+              "src/assets/style/all.min.css",
               {
                 "input": "src/styles/themes/_dark.scss",
                 "bundleName": "dark-theme",
                 "inject": false
               }
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
         }
       }

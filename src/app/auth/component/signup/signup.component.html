@@ -1,6 +1,5 @@
 <div class="container">
   <mat-card class="login-form">
-    <!-- <button mat-icon-button class="btn-close" routerLink="/admin"><mat-icon>close</mat-icon></button> -->
     <mat-card-title>Sign Up</mat-card-title>
     <button mat-icon-button class="btn-close" *ngIf="isAdmin | async" aria-label="Close" routerLink="/admin"><mat-icon>close</mat-icon></button>
     <button mat-icon-button class="btn-close" *ngIf="!(isAdmin | async)" aria-label="Close" routerLink="/home"><mat-icon>close</mat-icon></button>
