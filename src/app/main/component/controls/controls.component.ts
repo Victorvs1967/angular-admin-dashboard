@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { StyleManagerService } from 'src/app/service/style-manager.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-controls',
+  templateUrl: './controls.component.html',
+  styleUrls: ['./controls.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ControlsComponent implements OnInit {
 
   isDark = this.styleManager.isDark;
 
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
         const buttons = document.querySelectorAll('.active-btn'),
           active = document.querySelector('.active'),
           id = document.getElementById(control.dataset.id);
-          console.log(id);
+        console.log(id);
         // remove active-btn class from all controlls
         buttons.forEach(ctrl => {
           ctrl.classList.remove('active-btn');

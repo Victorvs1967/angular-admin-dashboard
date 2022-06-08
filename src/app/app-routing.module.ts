@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'alert', component: AlertComponent },
   { path: 'home', component: HomeComponent },
   { path: "auth", loadChildren: () => import('./auth/auth.module').then(M => M.AuthModule) },
-  { path: "main", loadChildren: () => import('./home/home.module').then(M => M.HomeModule) },
+  { path: "main", loadChildren: () => import('./main/main.module').then(M => M.HomeModule) },
   { path: "admin", canActivate: [AuthGuard], canActivateChild: [AdminGuard], loadChildren: () => import('./dasboard/dashboard.module').then(M => M.DashboardModule) },
   { path: '**', component: NotFoundComponent },
 ];

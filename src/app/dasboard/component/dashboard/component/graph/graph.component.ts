@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 import { ChartData, ChartOption, DonutChartView, PieChartView } from 'ngx-chart';
 
 @Component({
@@ -51,5 +52,57 @@ export class GraphComponent implements OnInit {
     showLegend: true,
     legendTitle: 'Total'
   };
+
+  // labels = [
+  //   'From flight',
+  //   'From Ground crew',
+  // ];
+
+  // data = {
+  //   labels: this.labels,
+  //   datasets: [{
+  //     data: [12, 19],
+  //     backgroundColor: ['#ef233c', '#d90429'],
+  //     borderColor: ['#212529', '#212529'],
+  //     borderWidth: 0,
+  //   }],
+  // };
+
+  // options = {
+  //   plugins: {
+  //     title: {
+  //       display: true,
+  //       align: 'center',
+  //       color: '#212529',
+  //       text: 'Breakdown of carbon from aeroplane',
+  //       font: {
+  //         size: 36,
+  //         weight: 'bold',
+  //       },
+  //     },
+  //     legend: {
+  //       display: true,
+  //       position: 'bottom',
+  //       labels: {
+  //         font: {
+  //           size: 22,
+  //           fontColor: '#edf2f4',
+  //         },
+  //         boxWidth: 20,
+  //       },
+  //     },
+  //   },
+  // };
+
+  // config = {
+  //   type: 'doughnut',
+  //   data: this.data,
+  //   options: this.options,
+  // };
+
+  // myChart = new Chart(
+  //   document.getElementById('Chart1'),
+  //   this.config
+  // );
 
 }
