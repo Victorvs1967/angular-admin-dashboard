@@ -11,11 +11,11 @@ export class ControlsComponent implements OnInit {
   isDark = this.styleManager.isDark;
 
   constructor(private styleManager: StyleManagerService) {
-    // call main function
-    this.pageTransition();
   }
 
   ngOnInit(): void {
+    // call main function
+    this.pageTransition();
   }
 
   // animate pages and controls

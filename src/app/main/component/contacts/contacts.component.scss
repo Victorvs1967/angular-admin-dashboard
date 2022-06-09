@@ -43,7 +43,7 @@
           transition: all .4s ease-in-out;
 
           &:hover {
-            color: #6c7983;
+            color: var(--color-grey-3);
           }
         }
       }
@@ -69,13 +69,13 @@
           width: 50px;
           height: 50px;
           border-radius: 50%;
-          color: #ffffff;
-          background-color: #2a2e35;
+          color: var(--color-white);
+          background-color: var(--color-grey-5);
           transition: all .4s ease-in-out;
 
           &:hover {
             color: #f1f1f1;
-            background-color: #D7263D;
+            background-color: var(--color-secondary);
           }
         }
       }
@@ -98,9 +98,9 @@
         padding: 0.8rem 1.1rem;
         outline: none;
         border: none;
-        background-color: #2a2e35;
+        background-color: var(--color-grey-5);
         width: 100%;
-        color: #ffffff;
+        color: var(--color-white);
         resize: none;
       }
     }
@@ -120,5 +120,3 @@
   }
 
 }
-
-// @import '../../media';

@@ -3,11 +3,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
 
   .blog {
     position: relative;
-    background-color: #2a2e35;
+    background-color: var(--color-grey-5);
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, .1);
     transition: all .4s ease-in-out;
@@ -39,27 +39,25 @@
     .blog-text {
       margin-top: -7px;
       padding: 1.1rem;
-      border-top: 8px solid #D7263D;
+      border-top: 8px solid var(--color-secondary);
 
       h4 {
         font-size: 1.5rem;
         margin-bottom: 0.7rem;
-        transition: all .4s ease-in-out;
+        transition: all .2s ease-in-out;
         cursor: pointer;
 
         &:hover {
-          color: #D7263D;
+          color: var(--color-secondary);
 
         }
       }
 
       p {
-        color: #b2becd;
+        color: var(--color-grey-2);
         line-height: 1.5rem;
         padding-bottom: 1rem;
       }
     }
   }
 }
-
-// @import '../../media';

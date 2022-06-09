@@ -16,24 +16,26 @@
     height: 55px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #454e56;
+    background-color: var(--color-grey-4);
     text-align: center;
     margin: 0.7rem 0;
-    box-shadow: 0 3px 15px rgba(0, 0, 0, .2);
+    box-shadow: var(--box-shadow-1);
 
     mat-icon {
-      font-size: 2rem;
-      color: #b2becd;
+      display: inline-block;
+      margin-left: .1rem;
+      font-size: 1.8rem;
+      color: var(--color-grey-2);
       pointer-events: none;
     }
   }
 
   .active-btn {
-    background-color: #D7263D !important;
+    background-color: var(--color-secondary) !important;
     transition: all .4s ease-in-out;
 
-    i {
-      color: #ffffff !important;
+    mat-icon {
+      color: var(--color-white) !important;
     }
   }
 }
@@ -46,7 +48,7 @@
   width: 70px;
   padding: 1rem;
   cursor: pointer;
-  background-color: #454e56;
+  background-color: var(--color-grey-4);
   width: 55px;
   height: 55px;
   border-radius: 50%;
@@ -57,9 +59,9 @@
   box-shadow: 0 3px 15px rgba(0, 0, 0, .3);
   transition: all .2s ease-in-out;
 
-  i {
-    font-size: 1.4rem;
-    color: #b2becd;
+  mat-icon {
+    font-size: 1.6rem;
+    color: var(--color-grey-2);
     pointer-events: none;
   }
 
@@ -67,5 +69,3 @@
     transform: translateY(-5px);
   }
 }
-
-// @import '../../media';
