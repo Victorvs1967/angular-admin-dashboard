@@ -3,4 +3,5 @@ export const environment = {
   baseUrl: 'http://portfolio-dev.club:8888',
   apiUrl: '/api/users',
   authUrl: '/auth',
+  projectUrl: '/api/projects',
 };

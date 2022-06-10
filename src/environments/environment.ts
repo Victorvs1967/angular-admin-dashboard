@@ -7,6 +7,7 @@ export const environment = {
   baseUrl: 'http://localhost:8080',
   apiUrl: '/api/users',
   authUrl: '/auth',
+  projectUrl: '/api/projects',
 };
 
 /*

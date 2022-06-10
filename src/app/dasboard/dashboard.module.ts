@@ -10,6 +10,8 @@ import { ListUserComponent } from './component/dashboard/component/list-user/lis
 import { EditUserComponent } from './component/dashboard/component/edit-user/edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from '../auth/component/signup/signup.component';
+import { ListProjectComponent } from './component/dashboard/component/list-project/list-project.component';
+import { AddProjectComponent } from './component/dashboard/component/add-project/add-project.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent,
@@ -18,6 +20,8 @@ const routes: Routes = [
       { path: 'addUser', component: SignupComponent },
       { path: 'listUser', component: ListUserComponent },
       { path: 'editUser/:username', component: EditUserComponent },
+      { path: 'addProject', component: AddProjectComponent },
+      { path: 'listProject', component: ListProjectComponent },
     ]
   },
 ];
@@ -29,6 +33,8 @@ const routes: Routes = [
     HeaderComponent,
     ListUserComponent,
     EditUserComponent,
+    ListProjectComponent,
+    AddProjectComponent,
   ],
   imports: [
     CommonModule,
