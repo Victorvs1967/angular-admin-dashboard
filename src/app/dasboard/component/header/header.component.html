@@ -11,7 +11,7 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="toggleDarkTheme()">
-      <mat-icon>{{ isDark ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      <mat-icon>{{ isDark ? 'light_mode' : 'dark_mode'}}</mat-icon>
       <span>Theme</span>
     </button>
     <button mat-menu-item routerLink="/auth/login" [disabled]="isLogin | async">

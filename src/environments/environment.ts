@@ -5,9 +5,10 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  apiUrl: '/api/users',
   authUrl: '/auth',
+  userUrl: '/api/users',
   projectUrl: '/api/projects',
+  skillUrl: '/api/skills',
 };
 
 /*

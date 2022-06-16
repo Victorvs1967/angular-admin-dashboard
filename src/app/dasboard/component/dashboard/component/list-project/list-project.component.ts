@@ -18,9 +18,12 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class ListProjectComponent {
 
+  // displayedColumns: string[] = [ "name", "image", "description", "skills", "links" ];
   displayedColumns: string[] = [ "name", "image", "description", "links" ];
   dataSource: any;
   expandedElement: Project | null | undefined;
+
+  img: any;
 
   constructor(private admin: AdminService) { 
     this.reloadData();
@@ -34,6 +37,10 @@ export class ListProjectComponent {
 
   reloadData() {
     this.admin.getProjectList().subscribe(data => this.dataSource = new ProjectsDataSource([...data]));
+  }
+
+  readImg(id: string) {
+    this.admin.read(id).subscribe(r => console.log(r.data));
   }
 
 }
