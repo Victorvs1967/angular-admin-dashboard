@@ -14,7 +14,7 @@ import { AdminService } from 'src/app/service/admin.service';
 export class AddProjectComponent implements OnInit {
 
   currentFile?: File;
-  msg: any;
+  imgId?: string;
   createForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService) { }
@@ -34,6 +34,7 @@ export class AddProjectComponent implements OnInit {
     // project.skills = this.createForm?.value.skills.split(',').map((name: string) => name.trim());
     project.links = this.createForm?.value.links.split(',').map((link: string) => link.trim());
     project.image = this.currentFile?.name || '';
+    project.imgId = this.imgId || '';
 
     this.admin.addProject(project).subscribe({
       next: () => {
@@ -51,10 +52,7 @@ export class AddProjectComponent implements OnInit {
   upload(event: any) {
     event.preventDefault();
     if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => {
-      if (response instanceof HttpResponse) {
-        this.msg = response.body;
-        console.log(response.body);
-      }
+      this.imgId = response.id;
     });
   }
 }

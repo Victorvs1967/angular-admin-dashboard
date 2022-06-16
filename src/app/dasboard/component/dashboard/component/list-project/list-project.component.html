@@ -55,7 +55,7 @@
               <div class="element-email"><strong>Description: </strong> {{ element.description }} </div>
               <div class="element-fullname">
                 <strong>Image: </strong>
-                <a mat-button (click)="readImg('62aa3e76ac35e73e3cbc3ca7')">{{ element.image }}</a>
+                <a mat-button (click)="readImg(element.imgId)">{{ element.image }}</a>
               </div>
               <div class="element-phone"><strong>Skills:</strong> {{ element.skills | json }} </div>
               <div class="element-address"><strong>Links: </strong> {{ element.links }} </div>

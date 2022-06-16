@@ -6,4 +6,5 @@ export interface Project {
   description: string;
   skills: string[];
   links: string[];
+  imgId: string;
 }

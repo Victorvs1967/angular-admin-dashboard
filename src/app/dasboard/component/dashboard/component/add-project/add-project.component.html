@@ -27,7 +27,7 @@
           <button mat-mini-fab color="primary" [disabled]="!currentFile" (click)="upload($event)">
             <mat-icon>upload</mat-icon>
           </button>
-          <mat-hint [innerHtml]="msg || 'No upload yet.'"></mat-hint>
+          <mat-hint [innerHtml]="imgId || 'No upload yet.'"></mat-hint>
         </mat-form-field>
 
         <!-- <mat-form-field appearance="legacy">
