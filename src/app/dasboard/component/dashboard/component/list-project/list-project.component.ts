@@ -23,7 +23,7 @@ export class ListProjectComponent {
   dataSource: any;
   expandedElement: Project | null | undefined;
 
-  img: any;
+  img?: string;
 
   constructor(private admin: AdminService) { 
     this.reloadData();
@@ -40,7 +40,24 @@ export class ListProjectComponent {
   }
 
   readImg(id: string) {
-    this.admin.read(id).subscribe(r => console.log(r.data));
+    this.admin.read(id).subscribe(res => this.insertImg(id, res));
+  }
+
+  insertImg(id: string, data: any) {
+    const contentType = 'image/jpeg';
+    const b64Data = data;
+    const byteArray = new Uint8Array(b64Data);
+    const blob = new Blob([byteArray], { type: contentType });
+    const blobUrl = URL.createObjectURL(blob);
+
+    const el = document.getElementById(id)
+    const img = document.createElement('img');
+    img.classList.add('detail-image');
+    img.src = blobUrl;
+    img.style.width = '500px';
+    img.style.height = 'auto';
+    el ? el.appendChild(img) : '';
+    console.log(img);
   }
 
 }

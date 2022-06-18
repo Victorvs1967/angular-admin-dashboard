@@ -25,11 +25,8 @@ export class AuthGuard implements CanActivate, CanDeactivate<unknown> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (confirm('Are you sure?')) {
       this.auth.logout();
       return true;
-    }
-    return false;
   }
   
 }

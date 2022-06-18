@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpContext, HttpEvent, HttpHeaders, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user.model';
@@ -60,7 +60,7 @@ export class AdminService {
   }
 
   read(id: string): Observable<any> {
-    return this.http.get(environment.baseUrl.concat(environment.projectUrl).concat('/read/').concat(id));
+    return this.http.get(environment.baseUrl.concat(environment.projectUrl).concat('/read/').concat(id), { responseType: 'arraybuffer' });
   }
 
 }

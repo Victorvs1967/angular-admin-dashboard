@@ -56,6 +56,7 @@
               <div class="element-fullname">
                 <strong>Image: </strong>
                 <a mat-button (click)="readImg(element.imgId)">{{ element.image }}</a>
+                <div id="{{ element.imgId }}"></div>
               </div>
               <div class="element-phone"><strong>Skills:</strong> {{ element.skills | json }} </div>
               <div class="element-address"><strong>Links: </strong> {{ element.links }} </div>

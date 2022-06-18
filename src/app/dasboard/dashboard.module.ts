@@ -14,9 +14,10 @@ import { ListProjectComponent } from './component/dashboard/component/list-proje
 import { AddProjectComponent } from './component/dashboard/component/add-project/add-project.component';
 import { ListSkillComponent } from './component/dashboard/component/list-skill/list-skill.component';
 import { AddSkillComponent } from './component/dashboard/component/add-skill/add-skill.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent,
+  { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
     children: [
       { path: '', component: GraphComponent },
       { path: 'addUser', component: SignupComponent },
