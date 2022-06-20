@@ -41,7 +41,8 @@
             <mat-card-header class="detail-header">
               <mat-card-title class="element-username"> {{ element.name }} </mat-card-title>
               <mat-card-actions class="btn-group">
-                <button mat-icon-button color="primary" routerLink="/admin/editProject/{{element.id}}">
+                <!-- <button mat-icon-button color="primary" routerLink="['/admin/editProject', element]"> -->
+                <button mat-icon-button color="primary" (click)="editProject(element)">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button color="warn" (click)="deleteProject(element.id)">
@@ -55,7 +56,7 @@
               <div class="element-email"><strong>Description: </strong> {{ element.description }} </div>
               <div class="element-fullname">
                 <strong>Image: </strong>
-                <a mat-button (click)="readImg(element.imgId)">{{ element.image }}</a>
+                <a mat-button (click)="readImg(element.imgId)">{{ element.image }} {{ element.imgId }}</a>
                 <div id="{{ element.imgId }}"></div>
               </div>
               <div class="element-phone"><strong>Skills:</strong> {{ element.skills | json }} </div>

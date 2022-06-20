@@ -18,7 +18,7 @@ export class AdminService {
   }
 
   public getUser(username: string): Observable<User> {
-    return this.http.get<User>(`${environment.baseUrl}${environment.userUrl}/${username}`);
+    return this.http.get<User>(environment.baseUrl.concat(environment.userUrl).concat('/').concat(username));
   }
 
   public editUser(user: User): Observable<User> {
@@ -33,8 +33,16 @@ export class AdminService {
     return this.http.get<Project[]>(environment.baseUrl.concat(environment.projectUrl));
   }
 
+  public getProject(id: string): Observable<Project> {
+    return this.http.get<Project>(environment.baseUrl.concat(environment.projectUrl).concat('/').concat(id));
+  }
+
   public addProject(project: Project): Observable<any | boolean> {
     return this.http.post<any>(environment.baseUrl.concat(environment.projectUrl), project)
+  }
+
+  public editProject(project: Project): Observable<Project> {
+    return this.http.put<Project>(environment.baseUrl.concat(environment.projectUrl), project);
   }
 
   public deleteProject(id: string): Observable<void> {

@@ -2,9 +2,9 @@ export interface Project {
 
   id: string;
   name: string;
-  image: string;
   description: string;
+  image: string;
+  imgId: string;
   skills: string[];
   links: string[];
-  imgId: string;
 }

@@ -15,6 +15,7 @@ import { AddProjectComponent } from './component/dashboard/component/add-project
 import { ListSkillComponent } from './component/dashboard/component/list-skill/list-skill.component';
 import { AddSkillComponent } from './component/dashboard/component/add-skill/add-skill.component';
 import { AuthGuard } from '../guard/auth.guard';
+import { EditProjectComponent } from './component/dashboard/component/edit-project/edit-project.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'editUser/:username', component: EditUserComponent },
       { path: 'addProject', component: AddProjectComponent },
       { path: 'listProject', component: ListProjectComponent },
+      { path: 'editProject', component: EditProjectComponent },
       { path: 'addSkill', component: AddSkillComponent },
       { path: 'listSkill', component: ListSkillComponent },
     ]
@@ -42,6 +44,7 @@ const routes: Routes = [
     AddProjectComponent,
     ListSkillComponent,
     AddSkillComponent,
+    EditProjectComponent,
   ],
   imports: [
     CommonModule,

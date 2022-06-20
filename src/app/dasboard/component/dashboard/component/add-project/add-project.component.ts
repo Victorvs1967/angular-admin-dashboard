@@ -51,8 +51,6 @@ export class AddProjectComponent implements OnInit {
 
   upload(event: any) {
     event.preventDefault();
-    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => {
-      this.imgId = response.id;
-    });
+    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.imgId = response.id);
   }
 }

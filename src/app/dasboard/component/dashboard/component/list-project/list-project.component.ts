@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/model/project.model';
 import { ProjectsDataSource } from 'src/app/model/projects-data-source';
 import { AdminService } from 'src/app/service/admin.service';
@@ -25,8 +26,12 @@ export class ListProjectComponent {
 
   img?: string;
 
-  constructor(private admin: AdminService) { 
+  constructor(private admin: AdminService, private router: Router) { 
     this.reloadData();
+  }
+
+  editProject(project: Project) {
+    this.router.navigate(['/admin/editProject', project])
   }
 
   deleteProject(id: string) {
@@ -50,14 +55,16 @@ export class ListProjectComponent {
     const blob = new Blob([byteArray], { type: contentType });
     const blobUrl = URL.createObjectURL(blob);
 
-    const el = document.getElementById(id)
-    const img = document.createElement('img');
-    img.classList.add('detail-image');
-    img.src = blobUrl;
-    img.style.width = '500px';
-    img.style.height = 'auto';
-    el ? el.appendChild(img) : '';
-    console.log(img);
+    const el = document.getElementById(id);
+    if (!el?.querySelector('img')) {
+      const img = document.createElement('img');
+      img.classList.add('detail-image');
+      img.src = blobUrl;
+      img.style.width = '500px';
+      img.style.height = 'auto';
+      el ? el.appendChild(img) : '';
+    }
+
   }
 
 }
