@@ -7,7 +7,7 @@ import { AdminGuard } from './guard/admin.guard';
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'alert', component: AlertComponent },
   { path: 'home', component: HomeComponent, canDeactivate: [AuthGuard] },
   { path: "auth", loadChildren: () => import('./auth/auth.module').then(M => M.AuthModule) },
