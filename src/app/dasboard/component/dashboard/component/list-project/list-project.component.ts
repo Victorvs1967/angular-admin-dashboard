@@ -19,8 +19,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class ListProjectComponent {
 
-  // displayedColumns: string[] = [ "name", "image", "description", "skills", "links" ];
-  displayedColumns: string[] = [ "name", "image", "description", "links" ];
+  displayedColumns: string[] = [ "name", "image", "description", "skills", "links" ];
   dataSource: any;
   expandedElement: Project | null | undefined;
 

@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080',
-  authUrl: '/auth',
+  loginUrl: '/auth/login',
+  signupUrl: '/auth/signup',
   userUrl: '/api/users',
   projectUrl: '/api/projects',
   skillUrl: '/api/skills',

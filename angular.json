@@ -32,7 +32,7 @@
           "skipTests": true
         },
         "@schematics/angular:application": {
-          "strict": true
+          "strict": false
         }
       },
       "root": "",
@@ -61,9 +61,7 @@
                 "inject": false
               }
             ],
-            "scripts": [
-              "node_modules/chart.js/dist/chart.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -137,9 +135,7 @@
                 "inject": false
               }
             ],
-            "scripts": [
-              "node_modules/chart.js/dist/chart.js"            
-            ]
+            "scripts": []
           }
         }
       }

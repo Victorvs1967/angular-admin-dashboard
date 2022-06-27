@@ -1,10 +1,11 @@
-export interface Project {
+import { Skill } from "./skill.model";
+import { Image } from "./image.model";
 
-  id: string;
+export interface Project {
+  id: string | null;
   name: string;
   description: string;
-  image: string;
-  imgId: string;
-  skills: string[];
+  image: Image;
+  skills: Skill[];
   links: string[];
 }

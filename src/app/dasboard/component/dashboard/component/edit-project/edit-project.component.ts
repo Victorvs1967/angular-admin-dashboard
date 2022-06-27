@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/model/project.model';
+import { Skill } from 'src/app/model/skill.model';
 import { AdminService } from 'src/app/service/admin.service';
 
 @Component({
@@ -11,52 +12,66 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class EditProjectComponent implements OnInit {
 
+  image: { id: string, name: string } = { id: '', name: '' };
+  skillsView: { value: Skill, viewValue: string }[] = [];
+  skills: Skill[] = [];
+  project: Project = {
+    id: null,
+    name: '',
+    description: '',
+    image: this.image,
+    skills: this.skills,
+    links: [],
+  };
+
   currentFile?: File;
-  imgId?: string;
   editForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private route: ActivatedRoute) { 
+    this.admin.getSkillList().subscribe(data => data.forEach(item => this.skillsView?.push({ value: item, viewValue: item.name })));
   }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       this.admin.getProject(param['id']).subscribe(project => {
+        this.project = project;
+        this.image = project.image;
+        this.skills = project.skills;
         this.editForm = this.formBuilder.group({
           name: [project.name, [Validators.required]],
           description: [project.description, [Validators.required]],
           image: [project.image],
-          // skills: [project.skills],
           links: [project.links.toString()],
-          id: [project.id],
-          imgId: [project.imgId]
+          skills: [project.skills],
         });
       })
     })
   }
 
   submitProject() {
-    const project: Project = this.editForm?.value;
-      // project.skills = this.editForm?.value.skills.split(',').map((name: string) => name.trim());
-      project.links = this.editForm?.value.links.split(',').map((link: string) => link.trim());
-      project.image = this.currentFile?.name || project.image;
-      project.imgId = this.imgId || project.imgId;
-      
-      this.admin.editProject(project).subscribe({
-        next: () => {
-          this.editForm?.reset();
-          this.router.navigate(['/admin/listProject']);
-        },
-        error: err => alert(err.message)
-      });
+    this.project.name = this.editForm?.value.name;
+    this.project.description = this.editForm?.value.description;
+    this.project.links = this.editForm?.value.links.split(',').map((link: string) => link.trim());
+    this.project.image = this.editForm?.value.image || this.image;
+    this.project.skills.push(this.editForm?.value.skills.value);
+    console.log(this.project.skills);
+    this.admin.editProject(this.project).subscribe({
+      next: () => {
+        this.editForm?.reset();
+        this.router.navigate(['/admin/listProject']);
+      },
+      error: err => alert(err.message)
+    });
   }
 
   selectFile(event: any) {
     this.currentFile = event.target.files[0];
+    if (this.currentFile) this.image.name = this.currentFile.name;
   }
 
   upload(event: any) {
     event.preventDefault();
-    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.imgId = response.id);
+    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.image.id = response.id);
   }
 
 }

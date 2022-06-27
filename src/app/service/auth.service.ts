@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   login(userInfo: { username: string, password: string }): Observable<any | boolean> {
-    return this.http.post(environment.baseUrl.concat(environment.authUrl).concat('/login'), userInfo).pipe(map((token: any) => {
+    return this.http.post(environment.baseUrl.concat(environment.loginUrl), userInfo).pipe(map((token: any) => {
       if (this.jwtService.decodeToken(token.token).role === Role.ADMIN) {
         this.clearToken();
         this.setToken(token);
@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   signup(user: User): Observable<any | boolean> {
-    return this.http.post(environment.baseUrl.concat(environment.authUrl).concat('/signup'), user)
+    return this.http.post(environment.baseUrl.concat(environment.signupUrl), user)
   }
 
   logout(param = true) {

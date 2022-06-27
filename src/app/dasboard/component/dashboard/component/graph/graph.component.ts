@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Component } from '@angular/core';
 import { ChartData, ChartOption, DonutChartView, PieChartView } from 'ngx-chart';
 
 @Component({
@@ -7,25 +6,23 @@ import { ChartData, ChartOption, DonutChartView, PieChartView } from 'ngx-chart'
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit {
+export class GraphComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
   donutChartData: ChartData[] = [
-    { name: "India", value: 132, color: "#61b15a" },
-    { name: "Nepal", value: 772, color: "#adce74" },
-    { name: "USA", value: 142, color: "#fff76a" },
-    { name: "UK", value: 112, color: "#ffce89" },
-    { name: "Brazil", value: 162, color: "#d8f8b7" }
+    { name: "Python", value: 25, color: "#61b15a" },
+    { name: "C", value: 22, color: "#adce74" },
+    { name: "Java", value: 20, color: "#fff76a" },
+    { name: "C#", value: 15, color: "#ffce89" },
+    { name: "JavaScript", value: 10, color: "#d8f8b7" },
+    { name: "Swift", value: 8, color: "#d8f807" },
   ];
 
   donutView: DonutChartView = {
     height: 400,
     width: 400,
-    radius: 160,
+    radius: 140,
     donutSize: 40
   };
 
@@ -35,11 +32,12 @@ export class GraphComponent implements OnInit {
   };
 
   pieChartData: ChartData[] = [
-    { name: "India", value: 132, color: "#61b15a" },
-    { name: "Nepal", value: 772, color: "#adce74" },
-    { name: "USA", value: 142, color: "#fff76a" },
-    { name: "UK", value: 112, color: "#ffce89" },
-    { name: "Brazil", value: 162, color: "#d8f8b7" }
+    { name: "Python", value: 25, color: "#61b15a" },
+    { name: "C", value: 22, color: "#adce74" },
+    { name: "Java", value: 20, color: "#fff76a" },
+    { name: "C#", value: 15, color: "#ffce89" },
+    { name: "JavaScript", value: 10, color: "#d8f8b7" },
+    { name: "Swift", value: 8, color: "#d8f800" },
   ];
 
   pieView: PieChartView = {
@@ -51,58 +49,7 @@ export class GraphComponent implements OnInit {
   pieChartOptions: ChartOption = {
     showLegend: true,
     legendTitle: 'Total'
+
   };
-
-  // labels = [
-  //   'From flight',
-  //   'From Ground crew',
-  // ];
-
-  // data = {
-  //   labels: this.labels,
-  //   datasets: [{
-  //     data: [12, 19],
-  //     backgroundColor: ['#ef233c', '#d90429'],
-  //     borderColor: ['#212529', '#212529'],
-  //     borderWidth: 0,
-  //   }],
-  // };
-
-  // options = {
-  //   plugins: {
-  //     title: {
-  //       display: true,
-  //       align: 'center',
-  //       color: '#212529',
-  //       text: 'Breakdown of carbon from aeroplane',
-  //       font: {
-  //         size: 36,
-  //         weight: 'bold',
-  //       },
-  //     },
-  //     legend: {
-  //       display: true,
-  //       position: 'bottom',
-  //       labels: {
-  //         font: {
-  //           size: 22,
-  //           fontColor: '#edf2f4',
-  //         },
-  //         boxWidth: 20,
-  //       },
-  //     },
-  //   },
-  // };
-
-  // config = {
-  //   type: 'doughnut',
-  //   data: this.data,
-  //   options: this.options,
-  // };
-
-  // myChart = new Chart(
-  //   document.getElementById('Chart1'),
-  //   this.config
-  // );
 
 }
