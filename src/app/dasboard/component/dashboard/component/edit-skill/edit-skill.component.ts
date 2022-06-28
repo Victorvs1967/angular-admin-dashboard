@@ -11,7 +11,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class EditSkillComponent implements OnInit {
 
-  project: Skill = {
+  skill: Skill = {
     id: null,
     name: '',
     description: '',
@@ -24,14 +24,18 @@ export class EditSkillComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {
-      this.admin.getSkill(param['id']).subscribe(skill => {
-        console.log(skill);
-        this.editForm = this.formBuilder.group({
-          name: ['skill.name', [Validators.required]],
-          description: ['skill.description', [Validators.required]],
-          percent: ['skill.percent'],
-        });
-      })
+      this.skill = {
+        id: param['id'], 
+        name: param['name'], 
+        description: param['description'], 
+        percent: parseInt(param['percent'])
+      };
+      this.editForm = this.formBuilder.group({
+        name: [this.skill.name, [Validators.required]],
+        description: [this.skill.description, [Validators.required]],
+        percent: this.skill.percent,
+        id: this.skill.id
+      });
     })
   }
 
