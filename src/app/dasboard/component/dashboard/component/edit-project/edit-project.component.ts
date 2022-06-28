@@ -28,7 +28,9 @@ export class EditProjectComponent implements OnInit {
   editForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private route: ActivatedRoute) { 
-    this.admin.getSkillList().subscribe(data => data.forEach(item => this.skillsView?.push({ value: item, viewValue: item.name })));
+    this.admin.getSkillList().subscribe(data => 
+      data.forEach(item => 
+        this.skillsView?.push({ value: item, viewValue: item.name })));
   }
 
   ngOnInit(): void {
@@ -54,7 +56,6 @@ export class EditProjectComponent implements OnInit {
     this.project.links = this.editForm?.value.links.split(',').map((link: string) => link.trim());
     this.project.image = this.editForm?.value.image || this.image;
     this.project.skills.push(this.editForm?.value.skills.value);
-    console.log(this.project.skills);
     this.admin.editProject(this.project).subscribe({
       next: () => {
         this.editForm?.reset();

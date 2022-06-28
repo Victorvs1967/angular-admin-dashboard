@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user.model';
 import { environment } from 'src/environments/environment';
+import { Image } from '../model/image.model';
 import { Project } from '../model/project.model';
 import { Skill } from '../model/skill.model';
 
@@ -37,8 +38,8 @@ export class AdminService {
     return this.http.get<Project>(environment.baseUrl.concat(environment.projectUrl).concat('/').concat(id));
   }
 
-  public addProject(project: Project): Observable<any | boolean> {
-    return this.http.post<any>(environment.baseUrl.concat(environment.projectUrl), project)
+  public addProject(project: Project): Observable<Project | boolean> {
+    return this.http.post<Project>(environment.baseUrl.concat(environment.projectUrl), project)
   }
 
   public editProject(project: Project): Observable<Project> {
@@ -53,18 +54,26 @@ export class AdminService {
     return this.http.get<Skill[]>(environment.baseUrl.concat(environment.skillUrl));
   }
 
-  public addSkill(skill: Skill): Observable<any | boolean> {
-    return this.http.post(environment.baseUrl.concat(environment.skillUrl), skill)
+  public getSkill(id: string): Observable<Skill> {
+    return this.http.get<Skill>(environment.baseUrl.concat(environment.skillUrl).concat('/').concat(id));
+  }
+
+  public addSkill(skill: Skill): Observable<Skill | boolean> {
+    return this.http.post<Skill>(environment.baseUrl.concat(environment.skillUrl), skill)
+  }
+
+  public editSkill(skill: Skill): Observable<Skill | boolean> {
+    return this.http.put<Skill>(environment.baseUrl.concat(environment.skillUrl), skill)
   }
 
   public deleteSkill(id: string): Observable<void> {
     return this.http.delete<void>(environment.baseUrl.concat(environment.skillUrl).concat('/').concat(id));
   }
 
-  upload(file: File): Observable<any> {
+  upload(file: File): Observable<Image> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post(environment.baseUrl.concat(environment.projectUrl).concat("/upload"), formData);
+    return this.http.post<Image>(environment.baseUrl.concat(environment.projectUrl).concat("/upload"), formData);
   }
 
   read(id: string): Observable<any> {

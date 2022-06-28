@@ -32,7 +32,11 @@
 
         <mat-form-field appearance="legacy">
           <mat-label>Skills</mat-label>
-          <input matInput placeholder="Enter skills..." type="text" formControlName="skills">
+          <mat-select formControlName="skills">
+            <mat-option *ngFor="let skill of skillsView" [value]="skill">
+              {{ skill.viewValue }}
+            </mat-option>
+          </mat-select>
           <mat-hint>skills</mat-hint>
         </mat-form-field>
 

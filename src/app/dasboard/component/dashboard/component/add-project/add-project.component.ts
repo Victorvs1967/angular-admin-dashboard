@@ -14,7 +14,8 @@ import { AdminService } from 'src/app/service/admin.service';
 export class AddProjectComponent implements OnInit {
 
   image = { id: '', name: '' }
-  skills: Skill[] = []
+  skillsView: { value: Skill, viewValue: string }[] = [];
+  skills: Skill[] = [];
   project: Project = {
     id: null,
     name: '',
@@ -28,9 +29,9 @@ export class AddProjectComponent implements OnInit {
   createForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService) { 
-    admin.getSkillList().subscribe(data => {
-      this.skills = [...data];
-    });
+    this.admin.getSkillList().subscribe(data => 
+      data.forEach(item => 
+        this.skillsView?.push({ value: item, viewValue: item.name })));
   }
 
   ngOnInit(): void {
@@ -38,7 +39,7 @@ export class AddProjectComponent implements OnInit {
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       image: [this.image],
-      skills: [ this.getSkills() ],
+      skills: [ this.skillsView ],
       links: [''],
     });
 }
@@ -46,7 +47,7 @@ export class AddProjectComponent implements OnInit {
   submitProject() {
     this.project.name = this.createForm?.value.name;
     this.project.description = this.createForm?.value.description;
-    this.project.skills = this.createForm?.value.skills;
+    this.project.skills.push(this.createForm?.value.skills.value);
     this.project.links = this.createForm?.value.links.split(',').map((link: string) => link.trim());
     this.project.image = this.image;
 
@@ -67,11 +68,5 @@ export class AddProjectComponent implements OnInit {
   upload(event: any) {
     event.preventDefault();
     if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.image.id = response.id);
-  }
-
-  getSkills(): string[] {
-    let skills: string[] = [];
-    this.skills?.forEach(skill => skills = [ ...skills, skill.name]);
-    return skills;
   }
 }

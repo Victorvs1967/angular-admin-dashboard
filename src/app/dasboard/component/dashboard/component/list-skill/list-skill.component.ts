@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill.model';
 import { SkillsDataSource } from 'src/app/model/skills-data-source';
 import { AdminService } from 'src/app/service/admin.service';
@@ -22,8 +23,12 @@ export class ListSkillComponent {
   dataSource: any;
   expandedElement: Skill | null | undefined;
 
-  constructor(private admin: AdminService) { 
+  constructor(private admin: AdminService, private router: Router) { 
     this.reloadData();
+  }
+
+  editSkill(skill: Skill) {
+    this.router.navigate(['/admin/editSkill', skill])
   }
 
   deleteSkill(id: string) {

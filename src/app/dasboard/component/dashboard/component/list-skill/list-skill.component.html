@@ -30,7 +30,7 @@
             <mat-card-header class="detail-header">
               <mat-card-title class="element-username"> {{ element.name }} </mat-card-title>
               <mat-card-actions class="btn-group">
-                <button mat-icon-button color="primary" routerLink="/admin/editSkill/{{element.id}}">
+                <button mat-icon-button color="primary" (click)="editSkill(element)">
                   <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button color="warn" (click)="deleteSkill(element.id)">
