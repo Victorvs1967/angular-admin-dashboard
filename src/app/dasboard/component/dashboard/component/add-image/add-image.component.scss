@@ -13,16 +13,27 @@
   padding: 2rem;
 }
 
-.form-inputs {
-  width: 100%;
-  padding: 2rem 0 2rem;
-
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+.file-upload {
+  text-align: center;
+  padding-bottom: 20px;
 }
 
+.file-download {
+  text-align: left;
+  padding-bottom: 20px;
+  margin: 0 10px;
+}
+
+input[type="file"] {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #128ff2;
+  border-radius: .25rem;
+}
+
+.file-input {
+  width: 100%;
+}
 .file-label {
   margin: 0;
   padding: 0;

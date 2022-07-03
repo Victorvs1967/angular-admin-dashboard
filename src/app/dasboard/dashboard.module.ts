@@ -17,6 +17,8 @@ import { AddSkillComponent } from './component/dashboard/component/add-skill/add
 import { AuthGuard } from '../guard/auth.guard';
 import { EditProjectComponent } from './component/dashboard/component/edit-project/edit-project.component';
 import { EditSkillComponent } from './component/dashboard/component/edit-skill/edit-skill.component';
+import { AddImageComponent } from './component/dashboard/component/add-image/add-image.component';
+import { ListImageComponent } from './component/dashboard/component/list-image/list-image.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
@@ -31,6 +33,8 @@ const routes: Routes = [
       { path: 'addSkill', component: AddSkillComponent },
       { path: 'listSkill', component: ListSkillComponent },
       { path: 'editSkill', component: EditSkillComponent },
+      { path: 'addImage', component: AddImageComponent },
+      { path: 'listImage', component: ListImageComponent },
     ]
   },
 ];
@@ -48,6 +52,8 @@ const routes: Routes = [
     AddSkillComponent,
     EditProjectComponent,
     EditSkillComponent,
+    AddImageComponent,
+    ListImageComponent,
   ],
   imports: [
     CommonModule,

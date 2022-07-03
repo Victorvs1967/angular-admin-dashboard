@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user.model';
 import { environment } from 'src/environments/environment';
-import { Image } from '../model/image.model';
 import { Project } from '../model/project.model';
 import { Skill } from '../model/skill.model';
 
@@ -69,15 +68,4 @@ export class AdminService {
   public deleteSkill(id: string): Observable<void> {
     return this.http.delete<void>(environment.baseUrl.concat(environment.skillUrl).concat('/').concat(id));
   }
-
-  upload(file: File): Observable<Image> {
-    const formData = new FormData();
-    formData.append('file', file);
-    return this.http.post<Image>(environment.baseUrl.concat(environment.projectUrl).concat("/upload"), formData);
-  }
-
-  read(id: string): Observable<any> {
-    return this.http.get(environment.baseUrl.concat(environment.projectUrl).concat('/read/').concat(id), { responseType: 'arraybuffer' });
-  }
-
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Project } from 'src/app/model/project.model';
 import { ProjectsDataSource } from 'src/app/model/projects-data-source';
 import { AdminService } from 'src/app/service/admin.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-list-project',
@@ -25,7 +26,7 @@ export class ListProjectComponent {
 
   img?: string;
 
-  constructor(private admin: AdminService, private router: Router) { 
+  constructor(private admin: AdminService, private images: ImageService, private router: Router) { 
     this.reloadData();
   }
 
@@ -43,27 +44,8 @@ export class ListProjectComponent {
     this.admin.getProjectList().subscribe(data => this.dataSource = new ProjectsDataSource([...data]));
   }
 
-  readImg(id: string) {
-    this.admin.read(id).subscribe(res => this.insertImg(id, res));
-  }
-
-  insertImg(id: string, data: any) {
-    const contentType = 'image/jpeg';
-    const b64Data = data;
-    const byteArray = new Uint8Array(b64Data);
-    const blob = new Blob([byteArray], { type: contentType });
-    const blobUrl = URL.createObjectURL(blob);
-
-    const el = document.getElementById(id);
-    if (!el?.querySelector('img')) {
-      const img = document.createElement('img');
-      img.classList.add('detail-image');
-      img.src = blobUrl;
-      img.style.width = '500px';
-      img.style.height = 'auto';
-      el ? el.appendChild(img) : '';
-    }
-
+  readImg(id: string): void {
+    this.images.download(id, '100%').subscribe();
   }
 
 }

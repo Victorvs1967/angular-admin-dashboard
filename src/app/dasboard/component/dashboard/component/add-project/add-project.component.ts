@@ -5,6 +5,7 @@ import { Project } from 'src/app/model/project.model';
 import { Skill } from 'src/app/model/skill.model';
 // import { Skill } from 'src/app/model/skill.model';
 import { AdminService } from 'src/app/service/admin.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-add-project',
@@ -28,7 +29,7 @@ export class AddProjectComponent implements OnInit {
   currentFile?: File;
   createForm?: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private images: ImageService) { 
     this.admin.getSkillList().subscribe(data => 
       data.forEach(item => 
         this.skillsView?.push({ value: item, viewValue: item.name })));
@@ -67,6 +68,6 @@ export class AddProjectComponent implements OnInit {
 
   upload(event: any) {
     event.preventDefault();
-    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.image.id = response.id);
+    if (this.currentFile) this.images.upload(this.currentFile).subscribe(response => this.image.id = response.id);
   }
 }

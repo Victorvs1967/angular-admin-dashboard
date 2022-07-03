@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/model/project.model';
 import { Skill } from 'src/app/model/skill.model';
 import { AdminService } from 'src/app/service/admin.service';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-edit-project',
@@ -27,7 +28,7 @@ export class EditProjectComponent implements OnInit {
   currentFile?: File;
   editForm?: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private route: ActivatedRoute) { 
+  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private images: ImageService, private route: ActivatedRoute) { 
     this.admin.getSkillList().subscribe(data => 
       data.forEach(item => 
         this.skillsView?.push({ value: item, viewValue: item.name })));
@@ -72,7 +73,7 @@ export class EditProjectComponent implements OnInit {
 
   upload(event: any) {
     event.preventDefault();
-    if (this.currentFile) this.admin.upload(this.currentFile).subscribe(response => this.image.id = response.id);
+    if (this.currentFile) this.images.upload(this.currentFile).subscribe(response => this.image.id = response.id);
   }
 
 }

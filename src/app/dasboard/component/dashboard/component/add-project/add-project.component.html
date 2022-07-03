@@ -20,10 +20,10 @@
           <mat-hint>description</mat-hint>
         </mat-form-field>
 
-        <mat-form-field appearance="legacy">
-          <mat-label>Image</mat-label>
+        <p class="file-label">Image</p>
+        <mat-form-field class="file-input" appearance="legacy">
           <input matInput style="display: none;">
-          <input class="file-upload" type="file" (change)="selectFile($event)" style="padding-top: 1.5rem;">
+          <input class="file-upload" type="file" (change)="selectFile($event)">
           <button mat-mini-fab color="primary" [disabled]="!currentFile" (click)="upload($event)">
             <mat-icon>upload</mat-icon>
           </button>

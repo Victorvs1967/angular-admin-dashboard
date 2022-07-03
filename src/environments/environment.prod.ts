@@ -5,5 +5,6 @@ export const environment = {
   signupUrl: '/auth/signup',
   userUrl: '/api/users',
   projectUrl: '/api/projects',
+  imageUrl: '/api/images',
   skillUrl: '/api/skills',
 };
