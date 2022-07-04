@@ -18,7 +18,7 @@ export class ListImageComponent {
     this.image.listImage().subscribe(data => {
       data.forEach(item => Object.entries(item).forEach(([id, name]) => {
         this.images = [...this.images, { id, name }];
-        this.image.download(id, '180px').subscribe();
+        this.image.download(id, '100%').subscribe();
       }));
     });
   }

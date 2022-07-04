@@ -1,13 +1,15 @@
 <mat-card class="file-container">
   <mat-card-content class="files-list">
-      <ul class="list-wrapper">
-        <li *ngFor="let image of images;">
-          <div class="img-container" id="{{ image.id }}"></div>
-          <div class="img-footer">
-            <a mat-button target="_blank">{{ image.name }}</a>
-            <a mat-button class="delete-link" (click)="delete(image.id)">delete</a>
-          </div>
-        </li>
-      </ul>
+    <mat-card-title>&nbsp;&nbsp;&nbsp;Images</mat-card-title>
+    <mat-divider inset></mat-divider>
+    <ul class="list-wrapper">
+      <li *ngFor="let image of images;">
+        <div class="img-container" id="{{ image.id }}"></div>
+        <div class="img-footer">
+          <a mat-button target="_blank">{{ image.name }}</a>
+          <a mat-button class="delete-link" (click)="delete(image.id)">delete</a>
+        </div>
+      </li>
+    </ul>
   </mat-card-content>
 </mat-card>
