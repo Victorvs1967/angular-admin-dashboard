@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ImageService } from 'src/app/service/image.service';
+import { ProjectListComponent } from './project-list/project-list.component';
 
 @Component({
   selector: 'app-list-image',
@@ -10,7 +12,7 @@ export class ListImageComponent {
 
   images: any[] = [];
 
-  constructor(private image: ImageService) {
+  constructor(private image: ImageService, private _bottomSheet: MatBottomSheet) {
     this.list();
   }
 
@@ -29,6 +31,10 @@ export class ListImageComponent {
       if (items !== null) items.forEach(item => item.innerHTML = '');
       this.list();
     });
+  }
+
+  toProject(image: {id: string, name: string}) {
+    this._bottomSheet.open(ProjectListComponent, { data: { image } });
   }
 
 }

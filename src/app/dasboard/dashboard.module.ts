@@ -19,6 +19,8 @@ import { EditProjectComponent } from './component/dashboard/component/edit-proje
 import { EditSkillComponent } from './component/dashboard/component/edit-skill/edit-skill.component';
 import { AddImageComponent } from './component/dashboard/component/add-image/add-image.component';
 import { ListImageComponent } from './component/dashboard/component/list-image/list-image.component';
+import { ViewImageComponent } from './component/dashboard/component/view-image/view-image.component';
+import { ProjectListComponent } from './component/dashboard/component/list-image/project-list/project-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
@@ -35,6 +37,7 @@ const routes: Routes = [
       { path: 'editSkill', component: EditSkillComponent },
       { path: 'addImage', component: AddImageComponent },
       { path: 'listImage', component: ListImageComponent },
+      { path: 'viewImage/:id', component: ViewImageComponent },
     ]
   },
 ];
@@ -54,6 +57,8 @@ const routes: Routes = [
     EditSkillComponent,
     AddImageComponent,
     ListImageComponent,
+    ViewImageComponent,
+    ProjectListComponent,
   ],
   imports: [
     CommonModule,
