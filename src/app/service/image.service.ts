@@ -26,21 +26,13 @@ export class ImageService {
         const blob = new Blob([byteArray], { type: contentType });
         const blobUrl = URL.createObjectURL(blob);
 
-        const el = document.getElementById(id);
-        if (!el?.querySelector('img')) {
-          const img = document.createElement('img');
-          img.classList.add('detail-image');
-          img.src = blobUrl;
-          img.style.width = width;
-          img.style.height = 'auto';
-          img.style.borderRadius = '.5rem';
-          el ? el.appendChild(img) : '';
-        }
+        const params = { class: 'detail-image', src: blobUrl, width: width, height: 'auto', radius: '.5rem' };
+        this.viewImage(id, params);
       })
     );
   }
 
-  listImage(): Observable<Image[]> {
+  list(): Observable<Image[]> {
     return this.http.get<Image[]>(environment.baseUrl.concat(environment.imageUrl));
   }
 
@@ -48,4 +40,16 @@ export class ImageService {
     return this.http.delete<void>(environment.baseUrl.concat(environment.imageUrl).concat('/').concat(id));
   }
 
+  private viewImage(id: string, params: any): void {
+    const el = document.getElementById(id);
+    if (!el?.querySelector('img')) {
+      const img = document.createElement('img');
+      img.classList.add('detail-image');
+      img.src = params.src;
+      img.style.width = params.width;
+      img.style.height = params.height;
+      img.style.borderRadius = params.radius;
+      el ? el.appendChild(img) : '';
+    }
+  }
 }

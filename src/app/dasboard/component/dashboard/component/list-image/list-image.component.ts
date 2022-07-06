@@ -13,11 +13,11 @@ export class ListImageComponent {
   images: any[] = [];
 
   constructor(private image: ImageService, private _bottomSheet: MatBottomSheet) {
-    this.list();
+    this.viewList();
   }
 
-  list() {
-    this.image.listImage().subscribe(data => {
+  viewList() {
+    this.image.list().subscribe(data => {
       data.forEach(item => Object.entries(item).forEach(([id, name]) => {
         this.images = [...this.images, { id, name }];
         this.image.download(id, '100%').subscribe();
@@ -29,7 +29,7 @@ export class ListImageComponent {
     this.image.delete(id).subscribe(() => {
       const items = document.querySelectorAll('li');
       if (items !== null) items.forEach(item => item.innerHTML = '');
-      this.list();
+      this.viewList();
     });
   }
 
