@@ -45,7 +45,8 @@ export class ListProjectComponent {
   }
 
   readImg(id: string): void {
-    this.images.download(id, '100%').subscribe();
+    const style = { width: '100%', height: 'auto', radius: '.5rem' };
+    this.images.download(id, style).subscribe();
   }
 
 }

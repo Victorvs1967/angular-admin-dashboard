@@ -52,11 +52,36 @@
           <mat-hint>phone</mat-hint>
         </mat-form-field>
       
-        <mat-form-field appearance="legacy">
+        <mat-form-field appearance="legacy" style="margin-bottom: 0;">
           <mat-label>Address</mat-label>
           <input matInput placeholder="Enter address..." type="text" formControlName="address">
           <mat-hint>address</mat-hint>
         </mat-form-field>     
+
+        <div class="fields-group">
+          <div class="file-field">
+            <!-- <p class="file-label">Photo</p> -->
+            <mat-form-field class="file-input" appearance="legacy">
+              <input matInput style="display: none;">
+              <input class="file-upload" type="file" (change)="selectPhoto($event)">
+              <button mat-mini-fab color="primary" [disabled]="!currentPhoto" (click)="uploadPhoto($event)">
+                <mat-icon>upload</mat-icon>
+              </button>
+              <mat-hint>Photo image ID: {{ photo.id || 'Photo upload yet.' }}</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="file-field">
+            <!-- <p class="file-label">Avatar</p> -->
+            <mat-form-field class="file-input" appearance="legacy">
+              <input matInput style="display: none;">
+              <input class="file-upload" type="file" (change)="selectAvatar($event)">
+              <button mat-mini-fab color="primary" [disabled]="!currentAvatar" (click)="uploadAvatar($event)">
+                <mat-icon>upload</mat-icon>
+              </button>
+              <mat-hint>Avatar image ID: {{ avatar.id || 'Avatar upload yet.' }}</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
       </mat-card-content>
       <mat-card-actions class="btn-group">
         <button mat-stroked-button color="primary" type="submit" [disabled]="signupForm.invalid || (signupForm.controls['password']?.value != signupForm.controls['password2']?.value)">SignUp</button>

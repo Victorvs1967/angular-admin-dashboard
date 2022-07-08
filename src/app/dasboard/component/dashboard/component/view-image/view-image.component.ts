@@ -14,7 +14,8 @@ export class ViewImageComponent {
   constructor(private image: ImageService, private route: ActivatedRoute) {
     this.route.params.subscribe(param => {
       this.id = param['id'];
-      if (this.id) this.image.download(this.id, '100%').subscribe();
+      const style = { width: '100%', height: 'auto', radius: '.5rem' };
+      if (this.id) this.image.download(this.id, style).subscribe();
     });
   }
 }

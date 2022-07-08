@@ -17,7 +17,7 @@ export class ImageService {
     return this.http.post<Image>(environment.baseUrl.concat(environment.imageUrl).concat("/upload"), formData);
   }
 
-  download(id: string, width: string): Observable<void> {
+  download(id: string, style: any): Observable<void> {
     return this.http.get(environment.baseUrl.concat(environment.imageUrl).concat('/download/').concat(id), { responseType: 'arraybuffer' })
       .pipe(map(data => {
         const contentType = 'image/jpeg';
@@ -26,8 +26,7 @@ export class ImageService {
         const blob = new Blob([byteArray], { type: contentType });
         const blobUrl = URL.createObjectURL(blob);
 
-        const params = { class: 'detail-image', src: blobUrl, width: width, height: 'auto', radius: '.5rem' };
-        this.viewImage(id, params);
+        this.viewImage(id, blobUrl, style);
       })
     );
   }
@@ -40,16 +39,27 @@ export class ImageService {
     return this.http.delete<void>(environment.baseUrl.concat(environment.imageUrl).concat('/').concat(id));
   }
 
-  private viewImage(id: string, params: any): void {
+  private viewImage(id: string, src: string, style: any): void {
     const el = document.getElementById(id);
     if (!el?.querySelector('img')) {
       const img = document.createElement('img');
+
       img.classList.add('detail-image');
-      img.src = params.src;
-      img.style.width = params.width;
-      img.style.height = params.height;
-      img.style.borderRadius = params.radius;
+      img.src = src;
+      // styling image
+      img.style.objectFit = 'cover';
+      img.style.transition = 'all .4s ease-in-out';
+      img.style.zIndex = style.zIndex || '';
+      img.style.width = style.width || '100%';
+      img.style.height = style.height || 'auto';
+      img.style.borderRadius = style.radius || '.5rem';
+      img.style.filter = style.filter || '';
+      
       el ? el.appendChild(img) : '';
     }
+  }
+
+  private saveImg(file: File, formData: FormData): void {
+    console.log(file, formData);
   }
 }

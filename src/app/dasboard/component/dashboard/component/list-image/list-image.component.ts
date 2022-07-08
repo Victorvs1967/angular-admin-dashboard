@@ -20,7 +20,8 @@ export class ListImageComponent {
     this.image.list().subscribe(data => {
       data.forEach(item => Object.entries(item).forEach(([id, name]) => {
         this.images = [...this.images, { id, name }];
-        this.image.download(id, '100%').subscribe();
+        const style = { width: '100%', height: 'auto', radius: '.5rem' };
+        this.image.download(id, style).subscribe();
       }));
     });
   }

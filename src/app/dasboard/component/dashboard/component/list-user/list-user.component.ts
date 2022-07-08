@@ -3,6 +3,7 @@ import { UsersDataSource } from 'src/app/model/users-data-source';
 import { AdminService } from 'src/app/service/admin.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { User } from 'src/app/model/user.model';
+import { ImageService } from 'src/app/service/image.service';
 
 @Component({
   selector: 'app-list-user',
@@ -22,7 +23,7 @@ export class ListUserComponent {
   dataSource: any;
   expandedElement: User | null | undefined;
 
-  constructor(private admin: AdminService) {
+  constructor(private admin: AdminService, private image: ImageService) {
     this.reloadData();
   }
 
@@ -34,6 +35,10 @@ export class ListUserComponent {
 
   reloadData() {
     this.admin.getUserList().subscribe(data => this.dataSource = new UsersDataSource([...data]));
+  }
 
+  readImg(id: string): void {
+    const style = { width: '100%', height: 'auto', radius: '.5rem' };
+    this.image.download(id, style).subscribe();
   }
 }

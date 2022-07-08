@@ -1,4 +1,5 @@
 import { Role } from "./role.model";
+import { Image } from './image.model'
 
 export interface User {
     id: string;
@@ -10,6 +11,8 @@ export interface User {
     lastName: string;
     phone: string;
     address: string;
+    photo: Image;
+    avatar: Image;
 
     onCreate: Date;
     onUpdate: Date;

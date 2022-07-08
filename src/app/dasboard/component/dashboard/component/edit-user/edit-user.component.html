@@ -54,6 +54,31 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+
+        <div class="fields-group">
+          <div class="file-field">
+            <!-- <p class="file-label">Photo</p> -->
+            <mat-form-field class="file-input" appearance="legacy">
+              <input matInput style="display: none;">
+              <input class="file-upload" type="file" (change)="selectPhoto($event)">
+              <button mat-mini-fab color="primary" [disabled]="!currentPhoto" (click)="uploadPhoto($event)">
+                <mat-icon>upload</mat-icon>
+              </button>
+              <mat-hint>Photo image ID: {{ photo.id || 'Photo upload yet.' }}</mat-hint>
+            </mat-form-field>
+          </div>
+          <div class="file-field">
+            <!-- <p class="file-label">Avatar</p> -->
+            <mat-form-field class="file-input" appearance="legacy">
+              <input matInput style="display: none;">
+              <input class="file-upload" type="file" (change)="selectAvatar($event)">
+              <button mat-mini-fab color="primary" [disabled]="!currentAvatar" (click)="uploadAvatar($event)">
+                <mat-icon>upload</mat-icon>
+              </button>
+              <mat-hint>Avatar image ID: {{ avatar.id || 'Avatar upload yet.' }}</mat-hint>
+            </mat-form-field>
+          </div>
+        </div>
       </mat-card-content>
       <mat-card-actions class="btn-group">
         <button mat-stroked-button color="primary" type="submit" [disabled]="editForm.invalid">Submit</button>

@@ -12,14 +12,14 @@ export class AddImageComponent implements OnInit {
 
   image: { id: string, name: string } = { id: '', name: ''};
   currentFile?: File;
-  createForm?: FormGroup;
+  imageForm?: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private images: ImageService) {
   }
 
   ngOnInit(): void {
-    this.createForm = this.formBuilder.group({
-      image: [this.image],
+    this.imageForm = this.formBuilder.group({
+      image: this.image,
     });
   }
 
