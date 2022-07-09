@@ -18,11 +18,11 @@ export class ListImageComponent {
 
   viewList() {
     this.image.list().subscribe(data => {
-      data.forEach(item => Object.entries(item).forEach(([id, name]) => {
-        this.images = [...this.images, { id, name }];
+      data.forEach(item => {
+        this.images = [...this.images, item];
         const style = { width: '100%', height: 'auto', radius: '.5rem' };
-        this.image.download(id, style).subscribe();
-      }));
+        this.image.download(item.id, style).subscribe();
+      });
     });
   }
 

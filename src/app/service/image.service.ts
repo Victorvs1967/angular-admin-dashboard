@@ -21,11 +21,9 @@ export class ImageService {
     return this.http.get(environment.baseUrl.concat(environment.imageUrl).concat('/download/').concat(id), { responseType: 'arraybuffer' })
       .pipe(map(data => {
         const contentType = 'image/jpeg';
-        const b64Data = data;
-        const byteArray = new Uint8Array(b64Data);
+        const byteArray = new Uint8Array(data);
         const blob = new Blob([byteArray], { type: contentType });
         const blobUrl = URL.createObjectURL(blob);
-
         this.viewImage(id, blobUrl, style);
       })
     );
@@ -43,7 +41,6 @@ export class ImageService {
     const el = document.getElementById(id);
     if (!el?.querySelector('img')) {
       const img = document.createElement('img');
-
       img.classList.add('detail-image');
       img.src = src;
       // styling image
@@ -57,9 +54,5 @@ export class ImageService {
       
       el ? el.appendChild(img) : '';
     }
-  }
-
-  private saveImg(file: File, formData: FormData): void {
-    console.log(file, formData);
   }
 }
