@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const MATERIAL_UI_COMPONENT = [
   MatToolbarModule,
@@ -28,6 +29,7 @@ const MATERIAL_UI_COMPONENT = [
   MatInputModule,
   MatSelectModule,
   MatBottomSheetModule,
+  MatTooltipModule,
 ];
 
 @NgModule({

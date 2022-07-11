@@ -28,7 +28,6 @@ export class ControlsComponent implements OnInit {
         const buttons = document.querySelectorAll('.active-btn'),
           active = document.querySelector('.active'),
           id = document.getElementById(control.dataset.id);
-        console.log(id);
         // remove active-btn class from all controlls
         buttons.forEach(ctrl => {
           ctrl.classList.remove('active-btn');

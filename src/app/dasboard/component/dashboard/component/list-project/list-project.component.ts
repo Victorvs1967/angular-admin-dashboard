@@ -41,7 +41,7 @@ export class ListProjectComponent {
   }
 
   reloadData() {
-    this.admin.getProjectList().subscribe(data => this.dataSource = new ProjectsDataSource([...data]));
+    this.admin.getProjectList().subscribe(data => this.dataSource = new ProjectsDataSource([ ...data ]));
   }
 
   readImg(id: string): void {
