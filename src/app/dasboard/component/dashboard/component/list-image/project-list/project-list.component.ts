@@ -17,9 +17,9 @@ export class ProjectListComponent {
   }
 
   toProject(id: string): void {
-    const image = this._bottomSheetRef.containerInstance.bottomSheetConfig.data.image;
+    // const image = this._bottomSheetRef.containerInstance.bottomSheetConfig.data.image;
     this.admin.getProject(id).subscribe(project => {
-      project.image = image;
+      // project.image = image;
       this.admin.editProject(project).subscribe({
         next: () => {
           console.log(project);

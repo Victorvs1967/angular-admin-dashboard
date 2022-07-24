@@ -21,6 +21,7 @@ import { AddImageComponent } from './component/dashboard/component/add-image/add
 import { ListImageComponent } from './component/dashboard/component/list-image/list-image.component';
 import { ViewImageComponent } from './component/dashboard/component/view-image/view-image.component';
 import { ProjectListComponent } from './component/dashboard/component/list-image/project-list/project-list.component';
+// import { NgChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
@@ -66,6 +67,7 @@ const routes: Routes = [
     MaterialUiModule,
     NgxChartModule,
     ReactiveFormsModule,
+    // NgChartsModule,
   ]
 })
 export class DashboardModule { }
