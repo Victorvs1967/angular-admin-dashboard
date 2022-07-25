@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ImageService } from 'src/app/service/image.service';
 
@@ -12,9 +12,9 @@ export class AddImageComponent implements OnInit {
 
   image: { id: string, name: string } = { id: '', name: ''};
   currentFile?: File;
-  imageForm?: FormGroup;
+  imageForm?: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder, private images: ImageService) {
+  constructor(private formBuilder: UntypedFormBuilder, private images: ImageService) {
   }
 
   ngOnInit(): void {

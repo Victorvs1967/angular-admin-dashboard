@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill.model';
 import { AdminService } from 'src/app/service/admin.service';
@@ -11,9 +11,9 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class AddSkillComponent implements OnInit {
   
-  createForm?: FormGroup;
+  createForm?: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private admin: AdminService) { }
 
   ngOnInit(): void {
         this.createForm = this.formBuilder.group({

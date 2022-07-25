@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,7 +12,7 @@ import { ImageService } from 'src/app/service/image.service';
 })
 export class SignupComponent implements OnInit {
 
-  signupForm?: FormGroup;
+  signupForm?: UntypedFormGroup;
   isLogin: Observable<boolean> | undefined;
   isAdmin: Observable<boolean> | undefined;
 
@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   currentPhoto?: File;
   currentAvatar?: File;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthService, private image: ImageService) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private auth: AuthService, private image: ImageService) { }
 
   ngOnInit(): void {
     this.isLogin = this.auth.isLoggedIn;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill.model';
 import { AdminService } from 'src/app/service/admin.service';
@@ -18,9 +18,9 @@ export class EditSkillComponent implements OnInit {
     percent: 0
   };
 
-  editForm?: FormGroup;
+  editForm?: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private route: ActivatedRoute) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private admin: AdminService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {

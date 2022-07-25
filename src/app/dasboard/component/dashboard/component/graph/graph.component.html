@@ -3,22 +3,29 @@
   <mat-card>
     <mat-card-title>Programming Langugage Rating</mat-card-title>
     <mat-card-content>
-      <ngx-donut-chart 
+      <!-- <ngx-donut-chart 
         [view]='donutView'
         [chartData]="donutChartData" 
         [chartOptions]='donutChartOptions'>
-      </ngx-donut-chart>
+      </ngx-donut-chart> -->
+      <canvas baseChart
+              [labels]="doughnutChartLabels"
+              [datasets]="doughnutChartDatasets"
+              [options]="doughnutChartOptions"
+              [legend]="true"
+              [type]="'doughnut'">
+      </canvas>
     </mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Programming Langugage Rating</mat-card-title>
     <mat-card-content>
-      <ngx-pie-chart 
+      <!-- <ngx-pie-chart 
         [view]='pieView' 
         [chartData]='pieChartData' 
         [chartOptions]='pieChartOptions'>
-      </ngx-pie-chart>
+      </ngx-pie-chart> -->
     </mat-card-content>
   </mat-card>
 

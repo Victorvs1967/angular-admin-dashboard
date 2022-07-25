@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Role } from 'src/app/model/role.model';
@@ -21,7 +21,7 @@ export class EditUserComponent implements OnInit {
     { value: Role.MANAGER, viewValue: 'MANAGER' },
   ];
 
-  editForm?: FormGroup;
+  editForm?: UntypedFormGroup;
   isLogin: Observable<boolean> | undefined;
   isAdmin: Observable<boolean> | undefined;
 
@@ -31,7 +31,7 @@ export class EditUserComponent implements OnInit {
   currentPhoto?: File;
   currentAvatar?: File;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private image: ImageService, private route: ActivatedRoute) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private admin: AdminService, private image: ImageService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(param => {

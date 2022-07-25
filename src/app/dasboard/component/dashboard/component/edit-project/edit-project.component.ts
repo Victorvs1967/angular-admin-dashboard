@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from 'src/app/model/project.model';
 import { Skill } from 'src/app/model/skill.model';
@@ -26,9 +26,9 @@ export class EditProjectComponent implements OnInit {
   };
 
   currentFile?: File;
-  editForm?: FormGroup;
+  editForm?: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private admin: AdminService, private images: ImageService, private route: ActivatedRoute) { 
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private admin: AdminService, private images: ImageService, private route: ActivatedRoute) { 
     this.admin.getSkillList().subscribe(data => 
       data.forEach(item => 
         this.skillsView?.push({ value: item, viewValue: item.name })));

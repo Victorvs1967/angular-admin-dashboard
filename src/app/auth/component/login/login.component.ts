@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
@@ -11,11 +11,11 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm?: FormGroup;
+  loginForm?: UntypedFormGroup;
   isLogin: Observable<boolean> | undefined;
   isAdmin: Observable<boolean> | undefined;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthService) { }
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
