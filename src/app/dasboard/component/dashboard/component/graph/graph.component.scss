@@ -4,13 +4,6 @@
   gap: 1.2rem;
 }
 
-.ngx-donut .chart-wrapper path:hover {
-  cursor: pointer;
-  stroke-width: 55px;
-}
-
-.ngx-pie .chart-wrapper path:hover {
-  cursor: pointer;
-  transform-origin: center;
-  transform: scale(1.05);
+canvas {
+  margin: 0 auto;
 }

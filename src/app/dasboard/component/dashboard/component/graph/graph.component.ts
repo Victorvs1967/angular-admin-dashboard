@@ -10,29 +10,15 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
 export class GraphComponent {
 
   constructor() { }
-  // Doughnut
-  public doughnutChartLabels: string[] = ['Programming Languages'];
-  public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-    { data: [25], label: 'Python' },
-    { data: [22], label: 'C' },
-    { data: [20], label: 'Java' },
-    { data: [15], label: 'C#' },
-    { data: [10], label: 'JavaScript' },
-    { data: [8], label: 'Swift' },
-  ];
-
-  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false
-  };
+  // DoughnutC
+  public doughnutChartLabels: string[] = ['Python', 'C', 'Java', 'C#', 'JavaScript', 'Swift'];
+  public doughnutChartDataset = [ { data: [25, 22, 20, 15, 10, 8] }, ];
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = { responsive: false };
 
   // Pie
-  public pieChartOptions: ChartOptions<'pie'> = {
-    responsive: false,
-  };
-  public pieChartLabels = [['Programming Languages'], ['Python', 'C', 'Java', 'C#', 'JavaScript', 'Swift']];
-  public pieChartDatasets = [{
-    data: [25, 22, 20, 15, 10, 8]
-  }];
+  public pieChartLabels = ['Python', 'C', 'Java', 'C#', 'JavaScript', 'Swift'];
+  public pieChartDataset = [ { data: [25, 22, 20, 15, 10, 8] } ];
+  public pieChartOptions: ChartOptions<'pie'> = { responsive: false, };
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
