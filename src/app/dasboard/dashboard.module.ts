@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { HeaderComponent } from './component/header/header.component';
 import { GraphComponent } from './component/dashboard/component/graph/graph.component';
-import { NgxChartModule } from 'ngx-chart';
+// import { NgxChartModule } from 'ngx-chart';
 import { ListUserComponent } from './component/dashboard/component/list-user/list-user.component';
 import { EditUserComponent } from './component/dashboard/component/edit-user/edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +21,7 @@ import { AddImageComponent } from './component/dashboard/component/add-image/add
 import { ListImageComponent } from './component/dashboard/component/list-image/list-image.component';
 import { ViewImageComponent } from './component/dashboard/component/view-image/view-image.component';
 import { ProjectListComponent } from './component/dashboard/component/list-image/project-list/project-list.component';
-// import { NgChartsModule } from 'ng2-charts';
+import { NgChartsModule } from 'ng2-charts';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canDeactivate: [AuthGuard],
@@ -65,9 +65,9 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialUiModule,
-    NgxChartModule,
+    // NgxChartModule,
     ReactiveFormsModule,
-    // NgChartsModule,
+    NgChartsModule,
   ]
 })
 export class DashboardModule { }
