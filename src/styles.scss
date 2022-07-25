@@ -4,7 +4,6 @@
 @use './styles/typography/config'as typography;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800&display=swap');
-@import "~ngx-chart/styles.scss";
 @import "/src/assets/themes/theme.scss";
 
 @include mat.core(typography.$angular-theme-app-typography);

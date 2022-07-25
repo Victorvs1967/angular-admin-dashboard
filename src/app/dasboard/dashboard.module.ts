@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialUiModule } from '../material-ui/material-ui.module';
 import { HeaderComponent } from './component/header/header.component';
 import { GraphComponent } from './component/dashboard/component/graph/graph.component';
-// import { NgxChartModule } from 'ngx-chart';
 import { ListUserComponent } from './component/dashboard/component/list-user/list-user.component';
 import { EditUserComponent } from './component/dashboard/component/edit-user/edit-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -65,7 +64,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialUiModule,
-    // NgxChartModule,
     ReactiveFormsModule,
     NgChartsModule,
   ]
